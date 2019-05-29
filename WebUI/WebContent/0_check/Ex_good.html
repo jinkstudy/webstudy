@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Ex_good.html</title>
+	
+	<style type = "text/css">
+	
+		#txt {color : red;} <!-- 아래서 txt라는 id를 부여해줘서 style에서 쉽게 찾을 수 있음 -->
+
+	</style>
+	
+	<script type = "text/javascript">
+	
+	<!-- window.onload = function() -> 윈도우가 전체 코드를 다 읽은 후 아래를 실행하라! 
+	넣지 않으면 이벤트 발생안함. txt의 정의가 밑에서 되기 때문데. -->
+	 window.onload = function(){
+		 var txt = document.getElementById('txt');
+			txt.onclick = function(){
+				alert('확인');
+			}
+
+	 }
+		
+	</script>
+
+
+</head>
+<!-- 화면에 출력하고 싶을때는 무조건 <body>안에 넣어야함. -->
+<body>
+
+<div id = 'txt'>표준안을 따름</div> <!-- 나중에 해당 내용을 잘 찾기 위해서 id를 부여함. -->
+
+</body>
+</html>

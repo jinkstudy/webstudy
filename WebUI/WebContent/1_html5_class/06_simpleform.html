@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>06_simpleform.html</title>
+</head>
+<body>
+
+
+
+		<!-- method는 전송방식이며, get과 post가 있고 get이 default.
+			get방식은 body에 넣어서 주소에 보이고, post는 head에 넣어서 주소에 안보임.-->
+			
+	<form action="xxxxx.jsp" method='post'>
+		<fieldset>
+			<legend>회원가입</legend>
+			<ol>
+				<li>이름 : <input name='irum' type='text' /></li>
+				<li>비밀번호 : <input name='pw' type='password' /></li>
+
+				<li>성별 <input name='gender' type='radio' value="men" />남자 <input
+					name='gender' type='radio' value="women" />여자
+				</li>
+
+				<li>직업 <select name="job">
+						<option value="program" selected="selected">프로그래머</option>
+						<option value="nojob">백수</option>
+						<option value="lawyer">변호사</option>
+				</select></li>
+
+				<li>취미 <input name='hobby' type='checkbox' value="sleep" />잠자기
+					<input name='hobby' type='checkbox' value="eat" />먹기 <input
+					name='hobby' type='checkbox' value="breath" />숨쉬기 <input
+					name='hobby' type='checkbox' value="spaceout" />멍때리기
+				</li>
+
+				<li>성별 <input name='gend' type='radio' value="men" />남자 <input
+					name='gender' type='radio' value="women" />여자
+				</li>
+
+				<li><input type='submit' value='확인' /> <input type='reset'
+					value='취소' /></li>
+					
+					
+				<li>
+					여행하고 싶은 장소 : <input type = 'text' list='countries'/>
+					<datalist id='countries'>
+						<option value = '칠레'/>
+						<option value = '스페인'/>
+						<option value = '스위스'/>
+					
+					</datalist>	
+
+			</ol>
+		</fieldset>
+	</form>
+
+
+</body>
+</html>
