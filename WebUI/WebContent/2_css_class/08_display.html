@@ -1,0 +1,47 @@
+<!-- 
+	display:block			:		 항상 새라인에서 시작하고 옆에 다른 요소 배치 안됨
+											width, height, padding, margin, border 조절 가능
+	display:inline		:		 새라인에서 시작 못하고 옆에 다른 요소와 배치 가능
+											width, height, padding, margin, border 조절 불가능
+	display:inline-block : 	새라인에서 시작 못하고 옆에 다른 요소와 배치 가능
+											width, height, padding, margin, border 조절 가능
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 박스의 유형 제어 - display </title>
+<style type = "text/css">
+	div div{
+		padding:20px;
+		margin:30px;
+		display:inline-block; 
+		
+		<!-- div이지만 inline 하고 싶은 경우 inline-block -->
+		
+	}
+	
+	div div:nth-of-type(2){
+		/*display:none;*/  /*공간도 삭제*/
+		visibility: hidden;  /*공간 비워두고 삭제*/
+	}
+		</style>
+</head>
+<body>
+<hr/>
+
+	<!-- div 없으면 일렬로 나옴. inline -->
+	<!-- <div style="background : orange">
+	<img src='./img/spade-2.png'  width='200px' height='300px'/>
+	<img src='./img/spade-3.png'  width='200px' height='300px'/>
+	<img src='./img/spade-7.png'  width='200px' height='300px'/> -->
+
+		<!-- div는 block이므로 한줄 개행됨. -->
+	<div style="background : orange">
+	<div><img src='./img/spade-2.png'  width='200px' height='300px'/></div>
+	<div><img src='./img/spade-3.png'  width='200px' height='300px'/></div>
+	<div><img src='./img/spade-7.png'  width='200px' height='300px'/></div>
+</div>
+
+</body>
+</html>

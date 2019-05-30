@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>06_html_form.html</title>
+
+<!-- 외부css가져오기. -->
+<!-- 절대경로. -->
+<!-- <link href='/WebUI/2_css_class/css/myform.css' rel='stylesheet' type='text/css'> -->
+
+<!-- 상대경로 -->
+<link href='./css/myform.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+
+	<form action='xxxx.jsp' method='get'>
+		<fieldset>
+			<legend> 개인정보 </legend>
+			<ol>
+				<li>
+					<!-- label괴 id는 같이 줘야 두개를 하나로 인식함. --> <label for='name'>이름</label>
+					<input type='text' name='name' id='name' placeholder='홍길동' required>
+					<!-- required 필수입력 지정 -->
+				</li>
+
+				<li><label for='email'>이메일</label> <input type='email'
+					name='email' id='email' placeholder='abc@encore.com' required>
+				</li>
+
+
+				<li><label for='tel'>전화번호</label> <input type='tel' name='tel'
+					id='tel' placeholder='010-000-0000'></li>
+
+				<li><label for='mybirth'>생일</label> <input type='date'
+					name='birth' id='mybirth' placeholder='1989-05-06'></li>
+			</ol>
+		</fieldset>
+		<fieldset>
+			<ol>
+				<legend> 코딩 숙련도(상,중,하) </legend>
+				<li><label for='skill'></label> <input type="range"
+					name="skill" id=" skill" min="0" max="3"></li>
+			</ol>
+		</fieldset>
+
+
+
+
+
+		<fieldset>
+			<input type='submit' value='전송' />
+		</fieldset>
+	</form>
+
+</body>
+</html>
