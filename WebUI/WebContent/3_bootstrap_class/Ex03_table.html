@@ -8,15 +8,27 @@
     
     <!-- 부트스트랩 -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+    
+   <style type="text/css">
    
+   <!-- 순서 중요 hover먼저 쓰고 even 속성주면, even에 대한것은 hover 적용 안됨. -->
+   
+   	    .table tr:hover{background-color:pink;}
+   		.table tr:nth-child(even){background-color:skyblue;}
+   		/*hover로 색변경 */
+   	
+   
+   
+   </style>
   
 </head>
 <body>
 	<!--  ............................................................................  -->   
 
 <div>
-        <h2  class="text-primary"> 우리 스타 보기</h2>
-		<table> 
+        <h2  class="text-warning"> 우리 스타 보기</h2>
+		<table class='table'> 
           <thead>
             <tr>
               <th>ID</th>
