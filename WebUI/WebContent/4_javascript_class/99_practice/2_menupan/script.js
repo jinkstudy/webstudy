@@ -11,9 +11,10 @@ window.onload = function (){
 	
 		window.onload = function(){
 	
-	var btn = document.getElementById('btn');
+			var btn = document.getElementsByClassName('menu') ;
 	btn.onclick = function(){
 		alert('이벤트방식2')
+		
 	}
 } 
 	
