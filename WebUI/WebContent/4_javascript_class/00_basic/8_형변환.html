@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>8_형변환.html</title>
+<script type="text/javascript">
+
+// 1.형변환
+var n = '0770';
+document.write( Number(n) + '<br/>'); //770	
+document.write( parseFloat(n) + '<br/>'); //770	
+document.write( parseInt(n) + '<br/>'); //770	
+
+var n = '123abc';
+document.write( Number(n) + '<br/>'); //NaN = Not a Number
+document.write( parseFloat(n) + '<br/>'); //123
+document.write( parseInt(n) + '<br/>'); //123
+
+
+// 2. 연산 후 형변환
+
+document.write(123 + "4"+ '<br/>'); //숫자 + 문자열 1234
+document.write(typeof(123 + "4")+ '<br/>'); //string
+document.write(123 - "4"+ '<br/>'); // 119
+document.write(typeof(123 - "4")+ '<br/>'); //number
+
+//3.요긴한 함수 - > 악마함수
+
+var str = 'alert("안녕하세요")';
+alert(str); //alert("안녕하세요")
+eval(str); //안녕하세요
+
+</script>
+
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+
+#웹표준
+
+구조(HTML) + 표현(CSS) +동작(Java Script) --> front-end
+
+
+
+front-end  : 웹브라우저에서 실행
+back -end : 웹서버에서 실행
+
+#자바스크립트의 실태
+http://trendyskills.com
+
+#자바스크립트는 자바스크립트입니다.
+
+
+
+#변천
+
+		2010년이전	2010년 이후
+presentation	HTML,CSS,JS	HTML,CSS,JS	
+Application	JSP,ASP,PHP	Node.js
+Database		Oracle,Mysql	mongodb
+
+
+#참고사이트
+
+	http://www.w3schools.com
+	http://developer.mozilla.org

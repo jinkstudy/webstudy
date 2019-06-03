@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>6_date.html</title>
+<script type = "text/javascript">
+
+	var d = new Date('2019/06/03');
+	document.write(d+'<br/>');
+	document.write(d.toLocaleString()+'<br/>');
+	document.write(d.toString()+'<br/>');
+	document.write(d.toDateString()+'<br/>');
+	
+	document.write(typeof(d)+'<br/>');
+	document.write(d.getYear()+'<br/>'); //119 //1900년도 기준.
+	document.write(d.getFullYear()+'<br/>'); //2019
+	document.write(d.getMonth()+'<br/>'); //5 -->0부터 시작하니까!
+	document.write(d.getDay()+'<br/>');//1 -->요일출력 : 1-->월요일
+	document.write(d.getDate()+'<br/>');//3 //날짜 출력.
+	
+	var d1 = new Date('2019/06/02');
+	document.write(d1.getDay()+'<br/>');//0 -->일요일.
+	
+	
+	var d2 = new Date();
+	d2.setFullYear(2019);
+	d2.setMonth(5); //6월이면 5를 입력해줘야함.
+	d2.setDate(3);
+	document.write(d2+'<br/>'); //Mon Jun 03 2019 12:50:46 GMT+0900 (한국 표준시)
+	document.write(d2.toLocaleString()+'<br/>');//2019. 6. 3. 오후 12:50:46
+	document.write(d2.toString()+'<br/>'); //Mon Jun 03 2019 12:50:46 GMT+0900 (한국 표준시)
+	document.write(d2.toDateString()+'<br/>'); //Mon Jun 03 2019
+	
+	
+	d2.setDate(d2.getDate() - 10);
+	document.write(d2.toDateString()+'<br/>'); //Fri May 24 2019
+	
+	d2.setDate(d2.getMonth() - 10);
+	document.write(d2.toDateString()+'<br/>'); //Wed Apr 24 2019
+	
+	//전달의 마지막 날
+	d2.setDate(0);
+	document.write(d2.toDateString()+'<br/>'); //Sun Mar 31 2019
+	document.write('이거' +d2.getDate()+'<br/>');//3 //날짜 출력.
+	//시간 얻어오기.
+	document.write(d2.getHours()+'<br/>');
+	document.write(d2.getMinutes()+'<br/>');
+	document.write(d2.getSeconds()+'<br/>');
+	
+</script>
+
+
+
+</head>
+<body>
+
+</body>
+</html>

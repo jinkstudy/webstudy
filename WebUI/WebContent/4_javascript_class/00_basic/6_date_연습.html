@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>6_date_연습</title>
+
+<script type="text/javascript">
+	window.onload=function(){ //윈도우 뜨고 다 읽은 후에 실행하세요. 
+		var btn = document.getElementById('btn');
+		btn.onclick = function(){
+			
+			var s1 = document.getElementById('startDate');
+			var e1 = document.getElementById('endDate');
+			//alert(s1+"~"+e1); //주소값이 나옴.
+			
+			var s = document.getElementById('startDate').value;
+			var e = document.getElementById('endDate').value;
+			//alert(s+"~"+e); //지정한 날짜가 나옴.
+			
+			//1.사용자입력값을 date형으로 만들기
+			var d1 = new Date(s);
+			var d2 = new Date(e);
+			
+			//2.두 date값의 차이(- 연산자 이용)
+			
+			var diff= (d2.getTime()-d1.getTime())/(1000*60*60*24)
+			//3. 2번의 차이값을 alert 로 출력
+			alert(diff);
+			
+			}
+	}
+	
+
+
+</script>
+	
+</head>
+<body>
+
+ 시작일 : <input type='date' id='startDate'/>~
+ 종료일 : <input type='date' id='endDate'/>
+ <input type='button' id='btn' value='여행일정'/>
+ 
+
+</body>
+</html>

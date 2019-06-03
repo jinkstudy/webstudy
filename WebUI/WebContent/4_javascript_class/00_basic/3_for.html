@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>3.for.html</title>
+
+<script type="text/javascript">
+	var arr= ['송혜고','김태휘','전지연'];
+	
+	for(var i=0 ; i<arr.length ; i++ ){
+		document.write(arr[i]+"<br/>");
+	}
+	
+	for(var i in arr){
+		document.write(arr[i] + "<br/>");
+		
+	}
+	
+	var obj = {x:'안녕',y:'Hello',z:'Hola'};
+	for(var i in obj){
+		
+		document.write(i +":" + obj[i] + "<br/>");
+	}
+	
+	obj.w='곤니찌와'; //추가 가능.
+	
+	for(var i in obj){
+		
+		document.write(i +":" + obj[i] + "<br/>");
+	}
+	
+
+</script>
+
+
+
+
+</head>
+<body>
+
+</body>
+</html>

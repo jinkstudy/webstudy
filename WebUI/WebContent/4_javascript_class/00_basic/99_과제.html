@@ -1,0 +1,83 @@
+<!--  이번달 달력을 출력하기(JavaScript 이용) -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+
+
+var today = new Date('2019-04-01');
+today.setDate(0);
+
+var last_day = today.getDay();
+var last_date = today.getDate();
+var start = 7-last_day;
+
+
+//document.write(last_day);
+//document.write(last_date);
+
+
+
+//var today = new Date();
+// var year = today.getFullYear();
+ var this_month = today.getMonth();
+ if(this_month%2==0){
+	 lastdate = 30; 
+	 
+ }else{lastdate =31; }
+// var date = today.getDate();
+// var day = today.getDay();
+
+document.write((this_month+2)+"월");
+document.write("<table border = '1'>");
+
+document.write("<tr>")
+document.write("<th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>")
+document.write("</tr>")
+
+document.write("<tr>")
+
+//var m=last_date-last_day;
+var j=1;
+for (var i = 0; i < 7; i++) {
+	if (i<=last_day) {
+		document.write("<td>"+""+"</td>")
+		
+	}else if(i>last_day){
+		
+		document.write("<td>"+j+"</td>")
+		j++;
+	}
+	document.write()
+}
+document.write("</tr>")
+
+var k=start;
+
+for(var i=0; i<5;i++){
+	
+	document.write("<tr>")
+	
+	for(var j=0; j<7; j++,k++){
+		document.write("<td>"+k +"</td>")
+		if(k>=lastdate){k=0};
+	}
+	document.write("</tr>")
+	
+}
+
+document.write("</table>");
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

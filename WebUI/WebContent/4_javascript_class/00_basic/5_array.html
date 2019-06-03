@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>5_array.html</title>
+<script type="text/javascript">
+	var arr = ['지민','뷔','정국','랩몬','제이홉'];
+	document.write( arr + '<br/>'); //지민,뷔,정국,랩몬,제이홈
+	document.write( arr.join('/') + '<br/>');//지민/뷔/정국/랩몬/제이홉
+	document.write( arr.slice(3) + '<br/>');  //랩몬,제이홉 //3부터 끝까지
+	document.write( arr.slice(1,3) + '<br/>');//뷔,정국 //1부터 2까지
+	
+	document.write( arr.pop() + '<br/>'); //제이홉 //맨마지막꺼 가져오고 삭제한다.
+	document.write( arr + '<br/>'); //지민,뷔,정국,랩몬
+	document.write( arr.push('방탄') + '<br/>'); //배열추가 후 갯수 //push하는 자리 index출력하고 해당자리에 추가.
+	document.write( arr + '<br/>'); //지민,뷔,정국,랩몬,방탄
+	document.write( arr.shift() + '<br/>');//지민 // 맨앞의 요소 얻어오고 삭제 후 한칸씩 이동. 왼쪽시프트.
+	document.write( arr + '<br/>');//뷔,정국,랩몬,방탄
+	
+	
+	document.write(arr.reverse() + '<br/>'); // 방탄,랩몬,정국,뷔	 //원본변함
+	document.write(arr + '<br/>'); // 방탄,랩몬,정국,뷔 
+	document.write(arr.sort() + '<br/>'); // 랩몬,방탄,뷔,정국 //원본변함.
+	document.write(arr + '<br/>');// 랩몬,방탄,뷔,정국
+	
+	var temp=['슈가','아무개'];
+	document.write(arr.concat(temp)+'<br/>'); //랩몬,방탄,뷔,정국,슈가,아무개 //원본영향 없음.
+	document.write(arr+'<br/>'); //랩몬,방탄,뷔,정국
+	
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
