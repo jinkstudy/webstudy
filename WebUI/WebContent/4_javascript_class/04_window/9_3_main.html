@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>9_3_main.html</title>
+<script type="text/javascript">
+	window.onload = function(){
+		
+		var winObj = window.open('9_3_sub.html','','width=400,height=380');
+		
+		var sel = frm.city;
+		sel.onchange=function(){
+			
+			
+			
+			var sel_city=sel.value;	
+			document.frm.district.value = sel_city;
+			//alert(sel_city);
+			winObj.focus();
+			winObj.frm.sub_city.value = sel_city;
+			
+		
+		}
+			
+			
+		}
+		
+		
+		
+		
+
+
+
+</script>
+
+
+</head>
+<body>
+
+<form name = "frm">
+	<select name = "city">
+	<option value = ""> 도시선택 </option>
+	<option value = "seoul"> 서울 </option>
+	<option value = "busan"> 부산 </option>
+	
+	</select>
+	<br>
+	<input type ="Text" name = "district" size ="20">
+	 
+
+
+</form>
+
+
+</body>
+</html>

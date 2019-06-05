@@ -5,6 +5,20 @@
 <title></title>
 <script type="text/javascript">
 
+window.onload = function(){
+	document.myForm.txt0.value = '하하';
+	document.myForm['txt1'].value = '호호';
+	document.getElementById('btn').onclick = function(){
+		//네 곳의 input 태그에 '데이터' 글씨를 지정
+		
+		for (var i = 0; i < myForm.length; i++) {
+			
+			document.myForm['txt'+i].value = '데이터';
+		}
+		
+	}
+}
+
 </script>
 </head>
 <body>

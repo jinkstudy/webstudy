@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>9_3_sub.html</title>
+<script type = "text/javascript">
+	window.onload = function(){
+		
+		var opt = frm.sub_city;
+		opt.onchange=function(){
+			if(frm.sub_city.value == 'seoul'){
+				document.getElementById("seoul").display = "none";
+			}else if(frm.sub_city.value == 'busan'){
+				document.getElementById("busan").display = "none";
+			}
+			
+		}
+		
+		}
+		
+	
+
+
+</script>
+</head>
+<body>
+
+<form name = "frm">
+	
+
+	<input type ="Text" name = "sub_city" size ="20">
+		<br>
+		
+	<div id='seoul'>
+	<input type="radio" name="seoul" value='0'> 서울역 <br> <input
+			type="radio" name="seoul" value='1'> 강남역 <br> <input
+			type="radio" name="seoul" value='2'> 신사역 <br>
+	</div>
+	<div id='busan'>
+	<input type="radio" name="busan" value='0'> 광안역 <br> <input
+			type="radio" name="busan" value='1'> 센텀시티역 <br> <input
+			type="radio" name="busan" value='2'> 서면역 <br>
+	</div>
+	
+
+	
+
+</form>
+
+
+</body>
+</html>

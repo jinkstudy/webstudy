@@ -4,6 +4,22 @@
 <meta charset="UTF-8">
 <title> 이벤트 예제 2 </title>
 <script type="text/javascript">
+
+
+window.onload = function(){
+	
+	var mango = document.frm.mango;
+	var avocado = document.frm.avocado;
+	
+	mango.onchange=cal;
+	avocado.onchange=cal;
+		function cal(){
+		document.frm.total.value = mango.value*4000+avocado.value*5000;
+		
+	}
+	
+}
+
 </script>
 	
 </head>

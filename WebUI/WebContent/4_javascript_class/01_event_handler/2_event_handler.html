@@ -5,7 +5,7 @@
 <title>이벤트 핸들러 연결</title>
 <script type="text/javascript">
 
-/* 	window.onload = init;
+/* 	window.onload = init; // 호출개념이 아니라 연결. init() 하면 안됨!
 	function init(){
 		
 		var btn = document.getElementById('btn');
@@ -24,9 +24,9 @@
 		}
 	} */
 	
-	 window.onload = function(){
+	 window.onload = function(e){ //이벤트 정보를 확인하고 싶다면 e를 써주면 됨.
 		document.getElementById('btn').onclick = function(){
-		alert('이벤트방식2-z')
+		alert('이벤트방식2-z' + e)
 			}
 		}
 		

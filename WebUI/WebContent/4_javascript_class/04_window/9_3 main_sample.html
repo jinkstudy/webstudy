@@ -1,0 +1,39 @@
+<main.html>
+--------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> main.html </title>
+</head>
+ <script type="text/javascript">
+  window.onload = function(){
+   var winObj = window.open('sub.html', ' ', 'width =400, height 380');
+   winObj.focus();
+  document.frm.choose.onchange = function(){ 
+   var x = document.frm.choose.selectedIndex; 
+    switch(x){
+    case 0 : winObj.frm1.choose1.value = '서울시'; break;
+    case 1: winObj.frm1.choose1.value  = '경기도'; break;
+    case 2: winObj.frm1.choose1.value  = '전라도'; break;
+    case 3: winObj.frm1.choose1.value  = '경상도'; break;
+    
+    }
+   }     
+  }
+ </script>
+<body>
+ <form name = "frm">
+ <select name="choose">
+   <option>서울시</option>
+   <option>경기도</option>
+   <option>전라도</option>
+   <option>경상도</option>
+  </select>
+  <p>
+ <input type = "text"  name ="location"  id="location">
+ </p>
+</form>
+</body>
+</html>
+

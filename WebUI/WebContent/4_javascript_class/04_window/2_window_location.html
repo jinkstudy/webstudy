@@ -27,14 +27,55 @@
 <meta charset="UTF-8">
 <title> window 예제 </title>
 <script type="text/javascript">
+
+window.onload = function(){
+	var opt = document.frm.chooseSite;
+	opt.onchange = showSite;
+
 	function showSite()
 	{
-		/*
-		1. 선택한 값의 인덱스를 얻어온다.
-		2. 각각의 인덱스에 맞는 새로운 창을 연다
-			[예] 인덱스 값이 1이라면 http://www.daum.net으로 창을 연다
-		*/
+		//새창으로 띄우기.
+		var winObj = window.open('','window-name','width=480,height=500');
+		
+		//1. 선택한 값의 인덱스를 얻어온다.
+		var opt_index = opt.selectedIndex;
+		//alert(opt_index);
+		
+		//2. 각각의 인덱스에 맞는 새로운 창을 연다
+//		[예] 인덱스 값이 1이라면 http://www.daum.net으로 창을 연다
+// 		if(opt_index == 0){
+// 			winObj.location.href='http://playdata.io';
+// 		}else if(opt_index == 1){
+// 			winObj.location.href='http://www.daum.net';
+// 		}else if(opt_index == 2){
+// 			winObj.location.href='http://www.naver.com';
+// 		}else if(opt_index == 3){
+// 			winObj.location.href='http://www.nate.com';
+// 		}
+		
+		
+		switch(opt_index){
+		
+		case 0: winObj.location.href='http://playdata.io';break;
+		case 1 :winObj.location.href='http://www.daum.net';break;
+		case 2 :winObj.location.href='http://www.naver.com';break;
+		case 3 :winObj.location.href='http://www.nate.com';break;
+		
+		}
 	
+	
+	
+	
+	
+}
+
+		
+		
+	
+	
+	
+	
+		
 	}
 </script>
 </head>

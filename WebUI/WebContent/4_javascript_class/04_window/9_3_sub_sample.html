@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> sub.html </title>
+<script type="text/javascript">
+  window.onload = function(){  
+   var x = document.frm1.location; 
+   for(var i =0; i<x.length; i++){
+    x[i].onclick = function(){
+     switch(x.value){
+     case '0' : opener.frm.location.value = '가산'; window.close(); break;
+     case '1': opener.frm.location.value  = '판교'; window.close(); break;
+     case '2': opener.frm.location.value  = '부평'; window.close(); break;   
+     }    
+    }  
+   }   
+  }  
+</script>
+</head>
+<body>
+ <form name="frm1">
+ <p>
+ <input type = "text"  name="choose1" id="choose1">
+ </p>
+  <input type="radio" name="location" value='0' > 가산<br>
+  <input type="radio" name="location" value='1' > 판교 <br>
+  <input type="radio" name="location" value='2'> 부평 <br>
+ </form>
+</body>
+</html>
