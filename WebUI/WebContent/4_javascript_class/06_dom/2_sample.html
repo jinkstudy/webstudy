@@ -14,7 +14,15 @@
 	function insertCustomer(){
 
 		// 1. 입력한 값들을 얻어온다.
+		var name = document.getElementById('name').value;
+		var age = document.getElementById('age').value;
+		var tel = document.getElementById('tel').value;
+		var addr = document.getElementById('addr').value;
+		
 		// 2. 테이블요소 얻어온다.
+		
+		var listTable = document.getElementById('listTable');
+		
 		// 3. tr 요소와 td 요소를 생성한다.
 		// 4. 텍스트노드(1번의 입력값)로 생성한다.
 		// 5. td 요소에 텍스트노드를 붙인다.

@@ -3,18 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <title> 폼 예제 1 </title>
+<script type="text/javascript" src='./js/formCheck.js'>
+</script>
 </head>
 <body>
 아래의 폼을 완성하시렵니까<br><br>
-<form name="frm" method="post" action="something.jsp">
-
+<form name="frm" id="frm" method="get" action="something.jsp">
+	<!--  서버에 넘기려면 name이 꼭 지정되어 있어야함. -->
+	
 	<!--  이름 입력 텍스트필드 추가(한글만 가능 2-5자 사이) -->
 	<label for="name">이름</label>
-	<input id = "name" pattern='[ㄱ-힣]{2,5}' maxlength="5" required />
-	<!-- maxlength 지정 시 해당 값이 넘치는 경우 입력자체가 안됨. -->
-	
+	<input id = "name" name = 'name' pattern='[ㄱ-힣]{2,5}' placeholder='한글2-5자 입력하세요' maxlength="5" required />
+	<!-- maxlength 지정 시 해당 값이 넘치는 경우 입력자체가 안됨., placeholder 힌트! value값으로 안침. -->
+		<br>
 	<label for="nickname">별명</label>
-		<input id="nickname" pattern="[A-Za-z]{3,}" maxlength="10" value="1">
+		<input id="nickname" name = 'nickname' pattern="[A-Za-z]{3,}" maxlength="10" value="1">
 		<br>
 		<label for="myemail">이메일</label>
 		<input type="email" id="myemail" required>
@@ -22,9 +25,11 @@
 		<label for="myage">나이</label>
 		<input type="number" id="myage" min="0" max="100" step="20" value="23"> 
 		<!-- step :20 ->20씩 증가하라-->
-		
 		<br>
-	<input type="submit" value="눌려봐">
+		<label for="agree"></label>
+		<input type="checkbox" id="agree" value='약관을 읽었습니다.'>약관을 읽었습니다.
+		<br>
+	<input type="button" value="눌려봐">
 </form>
 </body>
 </html>

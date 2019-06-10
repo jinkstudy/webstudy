@@ -6,7 +6,71 @@
 <link href='css/travel.css' rel='stylesheet' type='text/css'>
 
 <script type="text/javascript">
+
+window.onload=function(){
+	
+	var adult = document.getElementById('textfield');
+	var child = document.getElementById('textfield2');
+	var baby = document.getElementById('textfield3');
+	
+// 	adult.onkeydown=gettotal;
+// 	child.onkeydown=gettotal;
+// 	baby.onkeydown=gettotal;
+	
+	function gettotal(){
+		if (adult.value==null) {
+			adult.value = 0;
+		}
+		if (child.value==null) {
+			child.value = 0;
+		}
+		if (baby.value==null) {
+			baby.value = 0;
+		}
+		document.getElementById('textfield4').value = adult.value *39000 + child.value*29000 +baby.value*19000 ;
+		
+	}
+	
+	//var btn = document.getElementByIdName('btn1');
+	var btn= document.querySelectorAll('.btn1');
+	var agree1 = document.getElementById('checkbox');
+	var agree2 = document.getElementById('checkbox1');
+	alert(btn[0].value);
+	
+	btn[0].onsubmit = 	function(){
+		agree1.submit();
+		
+// 		//alert(agree1.checked);
+// 			if(!agree1.checked){
+// 				alert('반드시 확인하셔야 합니다.')
+// 				return;
+		}
+		};
+// for (var i = 0; i < btn.length; i++) {
+// 		btn[i].onsubmit = check;
+	
+// 		}
+		
+// 	function check(){
+	
+	
+// 	//alert(agree1.checked);
+// 		if(!agree1.checked || !agree2.checked){
+// 			alert('반드시 확인하셔야 합니다.')
+// 			return;
+// 	}
+// 	}
+	
+	
+	//var price = document.getElementsByClassName('text2');
+	//alert(price[0].text);
+	
+	
+//}
 		// oninput 이벤트 연결도 가능
+		
+		
+		
 </script>
 </head>
 
@@ -50,7 +114,7 @@
                 <td width="110" height="25" bgcolor="#F7F7F7"> <div align="center"><span class="text1">성인(만12세이상)</span></div></td>
                 <td width="190" height="25" bgcolor="#FFFFFF">
                   <label>
-                    <input name="textfield" type="text" id="textfield" size="2" />
+                    <input name="textfield" type="text" id="textfield" pattern="[0-9]" size="2" />
                     </label>
                   <span class="text4">명 <span class="text2">[1인당 39.000원]</span></span></td>
                 <td width="80" height="25" rowspan="3" bgcolor="#F7F7F7"><div align="center"><span class="text1">상품합계금액</span></div></td>
@@ -185,11 +249,12 @@
                 <td colspan="6">&nbsp;</td>
                 </tr>
               <tr>
-                <td><img src="img/travel_button_01.gif" width="84" height="27" /></td>
+<!--                 <td><button type = "submit" class= "btn1"><img src="img/travel_button_01.gif" width="84px" height="27px" /></button></td> -->
+<td><input type = "submit" class= "btn1">1</td>
                 <td width="2">&nbsp;</td>
-                <td><img src="img/travel_button_02.gif" width="71" height="27" /></td>
-                <td width="2">&nbsp;</td>
-                <td><img src="img/travel_button_03.gif" width="71" height="27" /></td>
+<!--                 <td><button type = "submit" class= "btn2"><img src="img/travel_button_02.gif" width="71" height="27" /></button></td> -->
+<!--                 <td width="2">&nbsp;</td> -->
+<!--                 <td><button type = "submit" class= "btn3"><img src="img/travel_button_03.gif" width="71" height="27" /></button></td> -->
               </tr>
               <tr>
                 <td colspan="6">&nbsp;</td>
