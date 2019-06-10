@@ -9,7 +9,40 @@
 //	 - 함수를 변수에 직접 할당하는 것이 아니라 함수의 결과물을 할당하기 위해 즉시 실행 함수를 사용(?)
 //	- 추후에 클로져와 관련
 
+var func = function(num){
+	document.write('num='+num+'<br/>');
+}(10); //선언과 동시에 실행하겠다.
 
+/* 함수도 리턴 할 수 있다 */
+
+
+
+var byensu = function(num){
+	num--;
+	document.write('>>num='+num + '<br/>');
+	
+	var fun = function(){
+		num--;
+		document.write('>num='+num + '<br/>');
+	}
+	return fun;
+}(10);
+
+byensu();
+byensu();
+byensu();
+
+
+var byensu1 = function(num){
+	return function(){
+		num--;
+		document.write('>num='+num + '<br/>');
+	};
+}(10);
+
+byensu1();
+byensu1();
+byensu1();
 
 </script>
 </head>

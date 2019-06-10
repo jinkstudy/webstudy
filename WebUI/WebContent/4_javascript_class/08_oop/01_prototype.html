@@ -3,6 +3,59 @@
 <head>
 	<meta charset="UTF-8">
 	<title> Javascript 객체지향 </title>
+<script type="text/javascript">
+//1.클래스 선언 - 생성자 함수 이용
+// 		권장사항: 변수명을 첫글자 대문자로. 함수인지 클래스인지 헷갈리니까.
+
+var Student = function(name, kor, eng, math){
+	this.name = name;
+	this.kor = kor;
+	this.eng = eng;
+	this.math = math;
+
+}
+
+//prototype으로 클래스 자체에 동적메소드 추가 => 전체 클래스 영향.
+// Student.prototype.display1 = function(){
+// 	return this.name + '님' + this.kor + '/' + this.eng + '/' + this.math;
+// }
+// Student.prototype.sum = function(){
+// 	return this.kor+this.eng+this.math;
+// }
+
+//prototype 한번에 추가하기.
+Student.prototype = {
+		sum : function(){
+			return this.kor + this.eng + this.math;
+		},
+		display1: function(){
+			return this.name + '님' + this.kor + '/' + this.eng + '/' + this.math;
+		}	
+}
+
+var s1 = new Student('홍길동',90,80,70);
+document.write(s1.name + ' 총점:' + s1.sum()+'<br/>');
+
+// 객체 생성 후 인스턴스에 동적메소드 추가. => 해당 인스턴스에만 추가
+s1['display'] = function(){
+	return this.name + '님' + this.kor + '/' + this.eng + '/' + this.math;
+}
+
+
+
+document['write'](s1.display()+'<br/>');
+document['write'](s1.display1()+'<br/>');
+
+var s2 = new Student('홍길자',88,77,66);
+document.write(s2.name + '총점:' + s2.sum() + '<br/>');
+//document.write(s2.display()+'<br/>'); // 에러! 동적 추가 메소드 호출 안됨.
+document.write(s2.display1()+'<br/>'); //정상적으로 나옴.
+
+
+console.log(s1);
+console.log(s2);
+	
+</script>
 </head>
 <body>
 <script>

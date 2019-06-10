@@ -3,8 +3,25 @@
 <head>
 	<meta charset="UTF-8">
 	<title>고급 함수 </title>
+	<!-- 외부 자바스크립트를 먼저 써주는 것이 좋다. -->
 	<script type="text/javascript" src="js/arg_func.js"></script> <!-- <script/>은 버그인가 -->	
 	<script type="text/javascript">
+	
+	/* 함수이름도 인자가 될 수 있다 */
+	
+	
+	function testFunc(arg){
+		var data = document.frm.num; //num이 여러개라서 알아서 배열로.
+		if(arg == 'sum'){
+			arrayProcess(data,sum);
+			alert('합계:'+sumResult);
+		}else if(arg == 'square'){
+			arrayProcess(data,square);
+			alert('제곱:'+squareResult);
+		}
+		
+	}
+	
 	</script>
 </head>
 <body>

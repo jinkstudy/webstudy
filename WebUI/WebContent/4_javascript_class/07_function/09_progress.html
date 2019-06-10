@@ -13,16 +13,31 @@
 <script>
 	var progress = document.getElementById("progress");
 	var current = 0;
+	/*
+		- setTimeout(func,time) : time 지난 후에 한번 func 함수 실행
+		- setInterval(func,rime) : 매 time 마다 func 함수 실행
+		- clearInterval() : interval 끝내기.
+	*/
 	
-	var intervalId = setInterval(updateProgress, 100);
+//  	var intervalId = setInterval(updateProgress, 100); // 0.1초마다 함수 실행.
 	
-	function updateProgress(){
+// 	function updateProgress(){
+// 		progress.value = current++;		
+// 		if(current==100){
+// 			clearInterval(intervalId);
+// 			//current =0;
+// 		}
+// 	}
+
+	var intervalId = setInterval(function(){
 		progress.value = current++;		
 		if(current==100){
 			clearInterval(intervalId);
+			//current =0;
 		}
-	}
-
+	}, 100); // 0.1초마다 함수 실행.
+	
+	
 
 </script>
 </html>

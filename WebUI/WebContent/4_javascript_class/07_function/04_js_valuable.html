@@ -4,8 +4,90 @@
 	<meta charset="UTF-8">
 	<title>자바스크립트 변수와 범위</title>
 	<script>
-
+	/* ### 1. 글로벌 변수와 지역변수 */
+	
+	var scope = '글로벌변수';
+	function getValue(){
+		var scope = '지역변수';
+		return scope;
+	}
+	document.write('1>'+ getValue() +'<br/>'); //  지역변수
+	document.write('2>'+scope+'<br/>'); // 글로벌변수
+	
+	
+	var scope1 = '글로벌변수1';
+	function getValue1(){
+		scope1 = '지역변수1';
+		return scope1;
+	}
+	document.write('1>'+ getValue1()+'<br/>'); //  지역변수1
+	document.write('2>'+scope1+'<br/>'); //  지역변수1
+	
+	
+	/* ### 2. var 생략가능 : */
+	
+	scope3 = '글로벌변수3';
+	function getValue3(){
+		document.write('0>' + scope3 + '<br/>'); // var scope3 = '지역변수3';==> undefined
+		// scope3 = 글로벌변수3 (var없이.)
+		var scope3 = '지역변수3';  
+		return scope3;
+	}
+	document.write('1>'+ getValue3()+'<br/>'); //  지역변수3
+	document.write('2>'+scope3+'<br/>'); // 지역변수3
+	
+	/* ### 3. 지역변수 범위  - 함수블록에만 유효함. (다른 언어랑 다름) */
+	if(true){
+		var i = 100;
+	}
+	
+	document.write('i='+ i + '<br/>'); // i=100
+	
+	function test(){
+		var j = 1000;
+	}
+// 	test();
+// 	document.write('j='+j + '<br/>'); // 에러 발생.
+	
+	//글로벌변수명을 중복해서 사용해도, 에러발생하지 않음.
+	// 다른 언어에서는 for문 안에 선언된 것은 지역변수 이지만, 자바스크립트에서는 글로벌 변수임!
+	for(var k=0; k<3; k++){
+		
+	}
+	for(var k=0; k<3; k++){
+		
+	}
+	document.write('k='+k+'<br/>'); //k=3
+	
+	var k=10;
+	document.write('k='+k+'<br/>'); //k=10
+	
+	var k=100;
+	document.write('k='+k+'<br/>'); //k=100
+	
+	/* 호이스팅(hoisting)
+		- 변수가 자신이 속한 블록 안에 있지 않고, 밖으로 끌어올려지는 현상
+	*/
+	
+	function doA(num){
+		document.write('before:'+value + '<br/>'); 
+		if(num%10 ===0){
+			var value = true;
+		}
+		document.write('after:'+value + '<br/>'); //after:true
+		
+	}
+	doA(10);//before:undefined,after:true
+	doA(11);//before:undefined,after:undefined
+	
 	</script>
+	
+<!-- 
+	ECMA Script 6 (ES6)
+	
+	var 사용 자제 -> let 사용 권장
+ -->	
+ 
 </head>
 
 <body>

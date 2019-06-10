@@ -18,9 +18,22 @@
 		};
 
 		// 자식클래스
-
-
-
+		var Dog = function(){};
+		Dog.prototype = new Animal(); //Animal클래스 상속
+		
+		var dog = new Dog(); // 객체 생성
+		
+		dog.move(); //(1)부모 메소드 호출
+		Dog.prototype.sound = function(){ //(2)오버라이딩.
+			document.writeln('멍멍짖다<br/>')
+		}
+		dog.sound();
+		
+		Dog.prototype.tail = function(){ //(3)추가
+			document.writeln('꼬리를 흔든다<br/>')
+		}
+		dog.tail();	
+		
 	</script>
 </body>
 </html>

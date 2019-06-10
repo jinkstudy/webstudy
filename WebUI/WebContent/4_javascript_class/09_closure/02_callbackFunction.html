@@ -9,14 +9,29 @@
  */
  
 		//------ 함수 선언
-		//  function add(){
+		//  function add(a,b){
 			
 		// }
 		
 		//------ 함수 호출
-		// add();
+		// add(3,4);
 		
-
+	//함수가 다른인자의 함수로 들어간다.
+	
+	function add(a,b,callFunc){
+		var result = a + b;
+		callFunc(result);
+		
+		return function(){
+			return a+ "+" + b+"="+result;
+		};
+	}
+	
+	var returnVar = add(10,20,function(res){
+		document.write('결과:'+res  +'<br/>');
+	});
+	
+	document.write('리턴결과:' + returnVar() +'<br/>');
 		
 		
 </script>

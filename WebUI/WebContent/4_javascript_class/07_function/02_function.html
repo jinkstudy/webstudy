@@ -1,12 +1,73 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>리터럴 함수</title>
+<meta charset="UTF-8">
+<title>리터럴 함수</title>
 </head>
 <body>
 	<script>
+//1.function 명령은 정적인 구조
+//	Function 생성자와 함수리터럴은 실행시 판단한다.
 
+
+// 함수호출은 먼저 하고, 함수 선언을 해보자!!  ==> 1번방식만 나오고 나머지는 안나옴.
+// 1번 방식은 정적인 구조! 미리 메로리에 올려져있음.
+// 2번 방식처럼 생성자 함수를 쓰는 경우, 먼저 선언해야함. 선언할때 메모리에 올라가짐.
+// 3번 함수리터럴 방식은 먼저 선언해야함. 변수를 먼저 선언해야 사용 가능.
+/*
+// 1) fucntion 명령
+	document.write('삼각형의 넓이:' + triangle(3,4) + "<br/>");
+	function triangle(base, height){
+		return base * height/2;
+		
+	}
+	
+	
+	
+	// 2) Function 생성자 이용
+	document.write('삼각형의 넓이2:' + triangle2(3,4) + "<br/>");
+	var triangle2 = new Function('base','height','return base*height/2');
+	
+	
+	// 3) 함수리터럴(*리터럴 : 변수의 값)
+	document.write('삼각형의 넓이3:' + triangle3(3,4) + "<br/>");
+	var triangle3 = function(base,height){
+		return base * height/2;
+	}
+*/
+
+/* ##### 2.함수도 data Type(자료형)입니다. */
+ 	var triangle3 = function(base,height){
+		return base * height/2;
+	}
+		document.write('삼각형의 넓이3:' + triangle3(3,4) + "<br/>");
+		document.write('변수' + triangle3 + "<br/>"); //변수function(base,height){ return base * height/2; }
+		triangle3 = '문자로 변환';
+		document.write('변수' + triangle3 + "<br/>"); //변수문자로 변환
+		triangle3 = 10000;
+		document.write('변수' + triangle3 + "<br/>"); //변수10000
+
+/* ##### 3.함수도 배열에 저장 */
+	function doA(){
+		document.write('함수A <br/>');
+		}
+	function doB(){
+		document.write('함수B <br/>');
+	}
+	
+	var arr = [doA, doB];
+	document.write('함수배열:'+arr+' <br/>');
+	
+	//arr에서 호출????
+	
+	arr[0](); //함수A 
+	document.write(arr[0]+' <br/>'); //function doA(){ document.write('함수A'); }
+	
+	var a = arr[0](); //함수A 
+	document.write(a+' <br/>');//undefined  //왜??????? return되는 값이 없어서 그런듯???
+	
+	arr[1]();
+			
 	</script>
 </body>
 </html>

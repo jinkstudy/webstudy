@@ -4,7 +4,39 @@
 	<meta charset="UTF-8">
 	<title> 파라메터 인자</title>
 	<script>
+	// 1. 기본형 인자(call by value)
+	
+	// priParam(변수) --> 인자에 해당하는 변수를  지역변수로 인식하여 전역변수에 영향X
+	var pri = 10;
+	function priParam(pri){
+		pri--;
+		return pri;
+	}
+	
+	document.write('1>' + priParam(pri) + '<br/>'); // 1>9
+	document.write('2>' + pri + '<br/>'); // >2>10
+	
+	var pri1 = 10;
+	function priParam1(){
+		pri1--;
+		return pri1;
+	}
+	
+	document.write('1>' + priParam1(pri1) + '<br/>'); // 1>9
+	document.write('2>' + pri1 + '<br/>'); // >2>9
+	
 
+	// 2. 참조형 인자(call by reference)
+	var ref = [1,2,3,4,5];
+	function refParam(ref){
+		ref.pop(); //스택
+		return ref;
+	}
+	
+	document.write('1>' + refParam(ref) + '<br/>'); // 1> 1,2,3,4
+	document.write('2>' + ref + '<br/>'); // 2> 1,2,3,4 //원본에 영향.
+	
+	
 	</script>
 </head>
 

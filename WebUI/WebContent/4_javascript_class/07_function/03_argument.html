@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수의 인자</title>
+<script type="text/javascript">
+/* ### 1.함수의 인자는 개수를 체크하지 않는다 */
+
+
+function multiple(first,second){
+	return first*second;
+}
+
+document.write('곱:'+multiple(2,4) + "<br/>"); //곱:8
+document.write('곱:'+multiple(2,3,4) + "<br/>"); //곱:6  여러개 보내도 앞에 두개만 계산함.
+document.write('곱:'+multiple(2) + "<br/>"); 
+//곱:NaN 인자가 부족한 경우, 컴파일에러가 나는 것이 아니라,두번째 인자에 undefined가 자동으로 들어가서 NaN이 나옴.   
+
+/* ### 2. 여러개의 인자(파라미터)를 익명의 객체로 받음 */
+ 
+function mul(args){
+	return args.first * args.second;
+	
+}
+document.write('곱:' + mul({first:3,second:4}) + '<br/>');
+
+/* ### 3. arguments 특별한 객체 */
+ function func(){
+	document.write(arguments + '<br/>');
+	console.log(arguments);
+}
+ func(1);
+ func(2,3);
+ 
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
