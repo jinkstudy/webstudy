@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title> 첫 연습 </title>
+	
+<style type = "text/css">
+	#here{
+		position:absolute;
+		top:0;
+		leftL:0;
+	}
+
+</style>	
+<script type="text/javascript" src='../lib/jquery-3.4.1.min.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+// $(function(){
+// 	$('#here').click(function(){
+// 		$('#here').text('클릭하면 내용 변경');
+// 	});
+// });
+
+$(function(){
+	var here = $('#here'); // 자주 사용하는 경우 변수로 지정해서 사용 가능 
+	
+// 	here.fadeOut(1000);
+// 	here.fadeIn('slow'); //아래처럼 연결해서 쓸 수 있음.
+	
+	
+	//here.fadeOut(1000).fadeIn('slow');
+	//here.slideUp('slow').slideDown(1000);
+	here.animate({top:200, left:400});
+	
+	
+	var std = $('#student');
+	var n = std.find('#name'); // var n2 = $('#name');
+	//n.css('background','#AAFF33');
+	n.css({'background':'red',
+		'color':'white',
+		'font-size' : '50px'});
+	
+	// color : #777777
+	// font-size : 12px
+	
+	
+	
+	
+	
+// 간단한 이벤트 확인.	
+// 		here.click(function(){
+// 		here.text('클릭하면 내용 변경2');
+// 		});
+		
+// 		here.mouseenter(function(){
+// 			here.text('마우스엔터이벤트');
+// 	});
+// 		here.mouseleave(function(){
+// 			here.text('마우스가 나감');
+// 	});
+// 		here.hover(function(){ //hove 인자 두개.
+// 			here.css('border','2px solid green');
+			
+// 		},function(){
+// 			here.css('border','2px dashed red');
+// 		});
+
+})
+
+
+
+
+
+
+</script>
+
+
+</head>
+<body>
+	
+
+	<div id="here">아자아자 제이쿼리~~!!!</div>
+	
+	
+	<div id="student">
+		<div id="name">홍길동</div>
+		<div id="age">34</div>
+	</div>
+
+
+	
+</body>
+</html>

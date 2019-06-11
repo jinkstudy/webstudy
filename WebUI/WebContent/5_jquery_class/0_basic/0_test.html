@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script type="text/javascript" src='../lib/jquery-3.4.1.min.js'></script>
+<script type="text/javascript">
+ 	// $(선택자).동작하기()
+ 	// 1- 방식
+ 	$(document).ready(function(){ //문서가 준비되면! (window.onload와 비슷한 개념)
+ 		$('#here').hide();
+ 		
+ 	});
+ 	
+ 	
+ 	//2-  JQuery 문법 방식
+	jQuery(function(){
+			$('#there').hide();
+	}); 
+
+ 	
+ 	//3 - 축약형
+ 	$(function(){
+ 		$('#here2').hide();
+ 	})
+ 	
+
+</script>
+</head>
+<body>
+
+	<div id='here'>오늘은 행복한 화요일</div>
+	<div id='there'>오늘은 행복한 수요일</div>
+	<div id='here2'>오늘은 행복한 화요일2</div>
+
+</body>
+</html>
