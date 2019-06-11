@@ -3,164 +3,199 @@
 <head>
 <meta charset="UTF-8">
 <title>CAFE</title>
- <link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src='../lib/jquery-3.4.1.min.js'></script>
+<script type="text/javascript">
+
+	$(function(){
+		var sum=0;
+		var table = $('#listTable');
+		$('.menuCount').each(function(){
+			
+			$(this).change(function(){
+			
+				//alert($(this).val());
+				var item = $(this).parent().find('span');
+				//alert(item.eq(0).text());
+				var menu = item.eq(0).text();
+				var cnt = $(this).val();
+				//alert(cnt);
+				
+				
+				
+				var row = '<tr>';
+				row+= '<td>'+ menu +'</td>';
+				row+= '<td>'+ cnt +'</td>';
+				row+= '<td><input type="button" value="삭제" class="delete"/></td>';
+				row+= '</tr>';
+				
+				//alert(row);
+				table.append(row);
+
+			/* 	var tr = $('<tr/>');
+				var td1= $('<td/>').text(menu);
+				var td2= $('<td/>').text(cnt);
+				var td3= $('<td/>').html('<input type="button" value="삭제" class="delete"/>');
+				tr.append(td1);
+				tr.append(td2);
+				tr.append(td3);
+				table.append(tr);
+				 */
+				
+				var amount = item.eq(1).text()* cnt;
+				//alert(amount);
+				sum += amount;
+				$('#total').val(sum);
+		
+			});
+		
+			});
+		
+		$('#listTable').on('click','.delete',function(){
+			$(this).closest('tr').remove();
+		});
+		
+		});
+
+
+</script>
+
 </head>
 <body>
 
 
-<div id="leftdiv">
-<table class="menutbl">
-	<tr id="menutitle">
-		<th colspan=3 id="titleText">M E N U</th>
-	</tr>
-	<tr class="menus">
-		<td id='menu1' class='menu'>
-			<img src="./images/에스프레소.jpg" /> <br/>
-			<span id="label1" value = '에스프레소'>에스프레소</span>
-			<span id="price1" value = '1000'>1000</span>원
-			<br/>
-			<select name="menu1Count" id="menu1Count" class='menuCount'>
-				<option value='0'>0</option>
-				<option value='1'>1</option>
-				<option value='2'>2</option>
-				<option value='3'>3</option>
-				<option value='4'>4</option>
-				<option value='5'>5</option>
-			</select>
-		</td>
-		<td id='menu2' class='menu'>
-			<img src="./images/아메리카노.jpg" /> <br/>
-			<span id="label2" value = '아메리카노'>아메리카노</span> 
-			<span id="price2" value = '2000'>2000</span>원<br/>
-			<select name="menu2Count" id="menu2Count" class='menuCount'>
-				<option value='0'>0</option>
-				<option value='1'>1</option>
-				<option value='2'>2</option>
-				<option value='3'>3</option>
-				<option value='4'>4</option>
-				<option value='5'>5</option>
-			</select>
-		</td>
-		<td id='menu3' class='menu'>
-			<img src="./images/카페라떼.jpg" /> <br/>
-			<span id="label3" value = '카페라떼'>카페라떼</span>
-			<span id="price3" value = '3000'>3000</span>원<br/>
-			<select name="menu3Count" id="menu3Count" class='menuCount'>
-				<option value='0'>0</option>
-				<option value='1'>1</option>
-				<option value='2'>2</option>
-				<option value='3'>3</option>
-				<option value='4'>4</option>
-				<option value='5'>5</option>
-			</select>
-		</td>
-		
-	</tr>
-	<tr class="menus">
-		<td id='menu4' class='menu'>
-			<img src="./images/카푸치노.jpg" /> <br/>
-			<span id="label4" value = '카푸치노'>카푸치노</span>
-			<span id="price4" value = '2000'>2000</span>원
-			<br/>
-			<select name="menu4Count" id="menu4Count" class='menuCount'>
-				<option value='0'>0</option>
-				<option value='1'>1</option>
-				<option value='2'>2</option>
-				<option value='3'>3</option>
-				<option value='4'>4</option>
-				<option value='5'>5</option>
-			</select>
-		</td>
-		<td id='menu5' class='menu'>
-			<img src="./images/돌체라떼.jpg" /> <br/>
-			<span id="label5" value='돌체라떼'>돌체라떼</span>
-			<span id="price5" value='1000'>1000</span>원<br/>
-			<select name="menu5Count" id="menu5Count" class='menuCount'>
-				<option value='0'>0</option>
-				<option value='1'>1</option>
-				<option value='2'>2</option>
-				<option value='3'>3</option>
-				<option value='4'>4</option>
-				<option value='5'>5</option>
-			</select>
-		</td>
-		<td id='menu6' class='menu'>
-			<img src="./images/카페모카.jpg" /> <br/>
-			<span id="label6" value='카페모카'>카페모카</span>
-			<span id="price6" value='1500'>1500</span>원 <br/>
-			<select name="menu6Count" id="menu6Count" class='menuCount'>
-				<option value='0'>0</option>
-				<option value='1'>1</option>
-				<option value='2'>2</option>
-				<option value='3'>3</option>
-				<option value='4'>4</option>
-				<option value='5'>5</option>
-			</select>
-		</td>
-	</tr>
-	<tr class="menus">
-		<td id='menu7' class='menu'>
-			<img src="./images/자바칩 프라프치노.jpg" /> <br/>
-			<span id="label7" value='자바칩 프라프치노'>자바칩 프라프치노</span>
-			 <span id="price7" value='2000'>2000</span>원 <br/>
-			<select name="menu7Count" id="menu7Count" class='menuCount'>
-				<option value='0'>0</option>
-				<option value='1'>1</option>
-				<option value='2'>2</option>
-				<option value='3'>3</option>
-				<option value='4'>4</option>
-				<option value='5'>5</option>
-			</select>
-		</td>
-		<td id='menu8' class='menu'>
-			<img src="./images/차이 티.jpg" /> <br/>
-			<span id="label8" value='차이 티'>차이 티</span>
-			<span id="price8" value='1000'>1000</span>원 <br/>
-			<select name="menu8Count" id="menu8Count" class='menuCount'>
-				<option value='0'>0</option>
-				<option value='1'>1</option>
-				<option value='2'>2</option>
-				<option value='3'>3</option>
-				<option value='4'>4</option>
-				<option value='5'>5</option>
-			</select>
-		</td>
-		<td id='menu9' class='menu'>
-			<img src="./images/그린 티.jpg" /> <br/>
-			<span id="label9" value='그린 티'>그린 티 </span>
-			<span id="price9" value='1500'>1500</span>원 <br/>
-			<select name="menu9Count" id="menu9Count" class='menuCount'>
-				<option value='0'>0</option>
-				<option value='1'>1</option>
-				<option value='2'>2</option>
-				<option value='3'>3</option>
-				<option value='4'>4</option>
-				<option value='5'>5</option>
-			</select>
-		</td>
-	</tr>
-</table>
-</div>
+	<div id="leftdiv">
+		<table class="menutbl">
+			<tr id="menutitle">
+				<th colspan=3 id="titleText">M E N U</th>
+			</tr>
+			<tr class="menus">
+				<td id='menu1' class='menu'><img src="./images/에스프레소.jpg" /> <br />
+					<span id="label1" value='에스프레소'>에스프레소</span> <span id="price1"
+					value='1000'>1000</span>원 <br /> <select name="menu1Count"
+					id="menu1Count" class='menuCount'>
+						<option value='0'>0</option>
+						<option value='1'>1</option>
+						<option value='2'>2</option>
+						<option value='3'>3</option>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+				</select></td>
+				<td id='menu2' class='menu'><img src="./images/아메리카노.jpg" /> <br />
+					<span id="label2" value='아메리카노'>아메리카노</span> <span id="price2"
+					value='2000'>2000</span>원<br /> <select name="menu2Count"
+					id="menu2Count" class='menuCount'>
+						<option value='0'>0</option>
+						<option value='1'>1</option>
+						<option value='2'>2</option>
+						<option value='3'>3</option>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+				</select></td>
+				<td id='menu3' class='menu'><img src="./images/카페라떼.jpg" /> <br />
+					<span id="label3" value='카페라떼'>카페라떼</span> <span id="price3"
+					value='3000'>3000</span>원<br /> <select name="menu3Count"
+					id="menu3Count" class='menuCount'>
+						<option value='0'>0</option>
+						<option value='1'>1</option>
+						<option value='2'>2</option>
+						<option value='3'>3</option>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+				</select></td>
 
-<div id="rightdiv">
-<table id="listTable">
-	<tr id="listtitle">
-		<th colspan=3 id="titleText">주문내역</th>
-	</tr>
-	<tr id="totallist">
-		<td colspan='3'>
-			총합 : <input type='text'  id='total'/> 원 
-			<input type='button'	value='주문하기'  id='btn'/>
-		</td>
-	</tr>
-	<tr id="listtr">
-		<td width="150">목록</td>
-		<td width="100">갯수</td>
-		<td width="50">삭제</td>
-	</tr>
-	
-</table>
-</div>
+			</tr>
+			<tr class="menus">
+				<td id='menu4' class='menu'><img src="./images/카푸치노.jpg" /> <br />
+					<span id="label4" value='카푸치노'>카푸치노</span> <span id="price4"
+					value='2000'>2000</span>원 <br /> <select name="menu4Count"
+					id="menu4Count" class='menuCount'>
+						<option value='0'>0</option>
+						<option value='1'>1</option>
+						<option value='2'>2</option>
+						<option value='3'>3</option>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+				</select></td>
+				<td id='menu5' class='menu'><img src="./images/돌체라떼.jpg" /> <br />
+					<span id="label5" value='돌체라떼'>돌체라떼</span> <span id="price5"
+					value='1000'>1000</span>원<br /> <select name="menu5Count"
+					id="menu5Count" class='menuCount'>
+						<option value='0'>0</option>
+						<option value='1'>1</option>
+						<option value='2'>2</option>
+						<option value='3'>3</option>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+				</select></td>
+				<td id='menu6' class='menu'><img src="./images/카페모카.jpg" /> <br />
+					<span id="label6" value='카페모카'>카페모카</span> <span id="price6"
+					value='1500'>1500</span>원 <br /> <select name="menu6Count"
+					id="menu6Count" class='menuCount'>
+						<option value='0'>0</option>
+						<option value='1'>1</option>
+						<option value='2'>2</option>
+						<option value='3'>3</option>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+				</select></td>
+			</tr>
+			<tr class="menus">
+				<td id='menu7' class='menu'><img src="./images/자바칩 프라프치노.jpg" />
+					<br /> <span id="label7" value='자바칩 프라프치노'>자바칩 프라프치노</span> <span
+					id="price7" value='2000'>2000</span>원 <br /> <select
+					name="menu7Count" id="menu7Count" class='menuCount'>
+						<option value='0'>0</option>
+						<option value='1'>1</option>
+						<option value='2'>2</option>
+						<option value='3'>3</option>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+				</select></td>
+				<td id='menu8' class='menu'><img src="./images/차이 티.jpg" /> <br />
+					<span id="label8" value='차이 티'>차이 티</span> <span id="price8"
+					value='1000'>1000</span>원 <br /> <select name="menu8Count"
+					id="menu8Count" class='menuCount'>
+						<option value='0'>0</option>
+						<option value='1'>1</option>
+						<option value='2'>2</option>
+						<option value='3'>3</option>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+				</select></td>
+				<td id='menu9' class='menu'><img src="./images/그린 티.jpg" /> <br />
+					<span id="label9" value='그린 티'>그린 티 </span> <span id="price9"
+					value='1500'>1500</span>원 <br /> <select name="menu9Count"
+					id="menu9Count" class='menuCount'>
+						<option value='0'>0</option>
+						<option value='1'>1</option>
+						<option value='2'>2</option>
+						<option value='3'>3</option>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+				</select></td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="rightdiv">
+		<table id="listTable">
+			<tr id="listtitle">
+				<th colspan=3 id="titleText">주문내역</th>
+			</tr>
+			<tr id="totallist">
+				<td colspan='3'>총합 : <input type='text' id='total' /> 원 <input
+					type='button' value='주문하기' id='btn' />
+				</td>
+			</tr>
+			<tr id="listtr">
+				<td width="150">목록</td>
+				<td width="100">갯수</td>
+				<td width="50">삭제</td>
+			</tr>
+
+		</table>
+	</div>
 
 </body>
 </html>

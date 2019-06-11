@@ -14,6 +14,75 @@
 <script type="text/javascript" src='../lib/jquery-3.4.1.min.js'></script>
 <script type="text/javascript">
 
+$(function(){
+	//1.요소찾기(filter)
+//	$('li').css('border','1px dotted yellow');
+	
+// 	//(1) li 중에서 첫번째 요소
+// 	$('li').first().css('border','2px solid red');
+// 	//(2) 짝수 요소
+
+// 	//$('li').filter( ":odd" ).css('background','skyblue' );
+	
+// 	//(3) 네번째 요소
+// 	$('li').filter( ":eq(3)" ).css('font-weight','border');
+	
+// 	//(4) 세번째까지의 요소
+	
+// 	$('li').filter( ":lt(3)" ).css('color','blue' );
+	
+// 	//(5) 첫번째를 제외한 요소
+// 	//$('li').filter( ":not(:first)" ).css('font-style', 'italic');
+// 	$('li:not(:first)').css('font-style', 'italic');
+	
+// 	//(6) '튀김'을 포함한 요소
+// 	$('li').filter( ":contains('튀김')" ).css('border','3px solid black' );
+// 	$('ul').find(":first-child").css('border','2px solid red');
+	
+	// li요소를 클릭하면 bg클래스를 추가.
+	$('li').each(function(){
+		$(this).click(function(){
+			$(this).toggleClass('bg');
+		});
+	})
+	
+	//(1) 어묵 밑에 자식 요소들만 css의 border 클래스 적용
+	//$('li:contains("어묵")').find('li:parent').addClass('border');
+	$('ul:eq(1)').find('li').css('border','2px solid red');
+	
+	//(2) li 요소 마우스가 올라가면 bg클래스 적용, 마우스가 내려가면 bg 클래스 제거. 단 어묵밑에 자식 요소제외.
+	//var li = $('li:not(:eq(2))');
+	
+	$('li').each(function(){
+		$(this).hover(function(){
+			$(this).addClass('bg');
+		}, 
+		function(){
+			$(this).removeClass('bg');
+		})
+	});
+
+// 	$("li>ul").each(function(){
+// 		$(this).hover(function(){
+// 			$(this).addClass('bg');
+// 		}, 
+// 		function(){
+// 			$(this).removeClass('bg');
+// 		})
+// 	});
+
+	;
+	
+	$('li').not("li:eq(2)").each(function(){
+		$(this).hover(function(){
+			$(this).addClass('bg');
+		}, 
+		function(){
+			$(this).removeClass('bg');
+		})
+	});
+ 	
+});
 
 
 
@@ -24,7 +93,12 @@
 		<h2>내가 좋아하는 음식 </h2>
 		<ul id="food">
 			<li>떡볶이</li>
-			<li>어묵</li>
+			<li>어묵	</li>
+			<li><ul>
+				<li>어묵꼬치</li>
+				<li>어묵튀김</li>
+				<li>어묵탕</li>	
+				</ul></li>
 			<li>닭튀김</li>
 			<li>돼지튀김</li>
 			<li>소튀김</li>
