@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 1.Jquery library -->
+<script src ="../../lib/jquery-3.4.1.min.js" type="text/javascript" ></script>
+
+<!-- 절대경로 -->
+<!-- <script src="/WebUI/5_jquery_class/lib/jquery-3.4.1.min.js" type="text/javascript"></script> -->
+
+<!-- 2. plugin library -->
+ <script src="/WebUI/5_jquery_class/9_plugin/0_basic/js/jquery.red.js" type="text/javascript"></script>
+
+ <!-- 2. user defined -->
+ 
+ <script type="text/javascript">
+ $(function(){
+	 $('#red').click(function(){
+		 $('#result').red();
+	 });
+ });
+ 
+  
+  </script>
+</head>
+<body>
+<button id = 'red'>빨강</button>
+<div id='result'>레드벨벳의 빨간맛 </div>
+
+</body>
+</html>
