@@ -2,6 +2,10 @@
 
 
 $(function(){
+	//이벤트
+	if($.cookie('check') != 'check'){
+		window.open("9_promotion.html","","width=400, height=360");	
+	}
 	// 날짜 표시.
 	var today = new Date();
 	
@@ -24,34 +28,48 @@ $(function(){
 	});
 	
 	// 탭메뉴
-		var tab = $('#tabmenu dt').find('a');
-		var list =$('#tabmenu dd ul').find('li') ;
-		
+		var tab = $('#tabmenu dt a').find('img');
+		//var list =$('#tabmenu dd ul').find('li') ;
+		var list =$('#tabmenu').find('dd')
 		list.hide();
 		
-		var lasttab = $('.tab_btn1');
-		var alt = lasttab.find('img').attr('alt');
-		
-		
+		var lasttab = $('.tab_btn1').find('img');
+		var alt = lasttab.attr('alt');
+		//alert(alt);
+		var lastlist = $('dd:contains("'+alt+'")');
+		lastlist.show();
+		//alert(lasttab.attr('src'));
 		//탭 클릭 시 ,
 		tab.click(function(){
 			//클릭 된 탭의 alt 값을 읽어온다.
+			
+			list.hide();
+			
+			lasttab.attr('src',(lasttab.attr('src')).replace('over','out'));
+			$(this).attr('src',($(this).attr('src')).replace('out','over'));
+			
+			lasttab = $(this);
+			alt = $(this).attr('alt');
 			//alert(alt);
 			
-			alt = lasttab.find('img').attr('alt');
-			var lastlist = $('li:contains("'+alt+'")');
-			//var lastlist = $('"'+text+':contains("'+alt+'")').parent();
-			alert('li:contains("'+alt+'")');
-			lastlist.show();
-			
-		 
-//		
-//		 alert(text);
-		// alert('text:contains("'+alt+'")');
-	
+		    lastlist = $('#tabmenu dd:contains("'+alt+'")');
+			console.log(lastlist);
+		    lastlist.css('display','block');
+
 	});
 		
-
+	// 슬라이드쇼
+		$(function(){
+			$('#best_bg ul').bxSlider({
+				minSlides : 6,
+				maxSlides : 8,
+				slideMargin : 80,
+				slideWidth : 250,
+				auto :true,
+				speed :100,
+				moveSlides:2
+			});
+		});
 	
 	
 	//로그인 버튼 클릭 시
