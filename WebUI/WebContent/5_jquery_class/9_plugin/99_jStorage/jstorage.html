@@ -2,7 +2,8 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-
+<!-- Jstorage는 모바일에서 쓰는 쿠키 개념. -->
+<!--브라우저 껏다 켜도 남아있음. -->
   <!-- jQuery라이브러리를 임포트 -->
   <script type="text/javascript"  src="http://code.jquery.com/jquery-1.9.0.js"></script>
 
@@ -10,7 +11,24 @@
   <script type="text/javascript" src="js/jstorage.min.js"></script>
 
   <script type="text/javascript">
-
+$(function(){
+	//창 뜨자마자, 스토리지에 저장되어 있는 것 불러오기.
+	$('#name').val($.jStorage.get('jname'));
+	$('#memo').val($.jStorage.get('jmemo'));//$.jStorage.set('값이름',저장할 값.);
+		
+		
+	//'등록' 버튼을 눌렸을때 데이터를 storage에 등록
+	$('#set').click(function(){
+		$.jStorage.set('jname',$('#name').val()); //$.jStorage.set('값이름',저장할 값.);
+		$.jStorage.set('jmemo',$('#memo').val());
+	});
+	
+	$('#del').click(function(){
+		$.jStorage.deleteKey('name');
+		
+	});
+	
+});
   </script>
 </head>
 <body>

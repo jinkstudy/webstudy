@@ -3,10 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <title>광고페이지</title>
+<!-- 체크박스 선택하고 닫기 눌려지면 쿠키 설정 -->
+ <script src="../../lib/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript"   src="js/jquery.cookie.js"></script>
+<script type="text/javascript">
+
+$(function(){
+	
+	var check= $('input:checkbox');
+	
+// 	check.change(function(){
+		
+// 		if(check.is(':checked')){
+// 			//alert("체크");
+// 			$.cookie('check','check');	
+// 		}
+		
+// 	});
+	
+	$('#closeWin').click(function(){
+		//alert("체크");
+		if(check.is(':checked')){
+			//alert("체크");
+			$.cookie('check','check');	
+		}
+		window.close();
+	})
+});
+
+
+</script>
+
+
 </head>
 <body>
 <img alt="" src="./images/image.jpg"><br/>
-이 페이지를 3분간 열지 않겠습니다.
+이 페이지를 오늘 하루 동안 열지 않겠습니다.
 <input type="checkbox">
 <input type='button' id='closeWin' name='closeWin' value='닫기'/>
 </body>

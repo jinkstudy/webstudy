@@ -13,46 +13,59 @@
 		$('.menuCount').each(function(){
 			
 			$(this).change(function(){
-			
-				//alert($(this).val());
-				var item = $(this).parent().find('span');
-				//alert(item.eq(0).text());
-				var menu = item.eq(0).text();
 				var cnt = $(this).val();
-				//alert(cnt);
+				if(cnt != 0){
+					//alert($(this).val());
+					var item = $(this).parent().find('span');
+					//alert(item.eq(0).text());
+					var menu = item.eq(0).text();
 				
-				
-				
-				var row = '<tr>';
-				row+= '<td>'+ menu +'</td>';
-				row+= '<td>'+ cnt +'</td>';
-				row+= '<td><input type="button" value="삭제" class="delete"/></td>';
-				row+= '</tr>';
-				
-				//alert(row);
-				table.append(row);
+					//alert(cnt);
+					
+					
+					
+//	 				var row = '<tr>';
+//	 				row+= '<td>'+ menu +'</td>';
+//	 				row+= '<td>'+ cnt +'</td>';
+//	 				row+= '<td><input type="button" value="삭제" class="delete"/></td>';
+//	 				row+= '</tr>';
+					
+//	 				//alert(row);
+//	 				table.append(row);
 
-			/* 	var tr = $('<tr/>');
-				var td1= $('<td/>').text(menu);
-				var td2= $('<td/>').text(cnt);
-				var td3= $('<td/>').html('<input type="button" value="삭제" class="delete"/>');
-				tr.append(td1);
-				tr.append(td2);
-				tr.append(td3);
-				table.append(tr);
-				 */
+				 	var tr = $('<tr/>');
+					var td1= $('<td/>').text(menu);
+					var td2= $('<td/>').text(cnt);
+					var td3= $('<td/>').html('<input type="button" value="삭제" class="delete"/>');
+					var amount = item.eq(1).text()* cnt;
+					tr.val(amount);
 				
-				var amount = item.eq(1).text()* cnt;
-				//alert(amount);
-				sum += amount;
-				$('#total').val(sum);
+					
+					
+					tr.append(td1);
+					tr.append(td2);
+					tr.append(td3);
+					table.append(tr);
+					
+					
+				
+					//alert(amount);
+					sum += amount;
+					$('#total').val(sum);
+					 
+				}
+				
 		
 			});
 		
 			});
 		
 		$('#listTable').on('click','.delete',function(){
+			var minus = $(this).closest('tr').val();
+			sum -= minus;
 			$(this).closest('tr').remove();
+			$('#total').val(sum);
+			
 		});
 		
 		});
@@ -106,7 +119,7 @@
 
 			</tr>
 			<tr class="menus">
-				<td id='menu4' class='menu'><img src="./images/카푸치노.jpg" /> <br />
+				<td id='menu4' class='menu'><img src="./images/카페라떼.jpg" /> <br />
 					<span id="label4" value='카푸치노'>카푸치노</span> <span id="price4"
 					value='2000'>2000</span>원 <br /> <select name="menu4Count"
 					id="menu4Count" class='menuCount'>
@@ -117,7 +130,7 @@
 						<option value='4'>4</option>
 						<option value='5'>5</option>
 				</select></td>
-				<td id='menu5' class='menu'><img src="./images/돌체라떼.jpg" /> <br />
+				<td id='menu5' class='menu'><img src="./images/카페라떼.jpg" /> <br />
 					<span id="label5" value='돌체라떼'>돌체라떼</span> <span id="price5"
 					value='1000'>1000</span>원<br /> <select name="menu5Count"
 					id="menu5Count" class='menuCount'>
@@ -128,7 +141,7 @@
 						<option value='4'>4</option>
 						<option value='5'>5</option>
 				</select></td>
-				<td id='menu6' class='menu'><img src="./images/카페모카.jpg" /> <br />
+				<td id='menu6' class='menu'><img src="./images/카페라떼.jpg" /> <br />
 					<span id="label6" value='카페모카'>카페모카</span> <span id="price6"
 					value='1500'>1500</span>원 <br /> <select name="menu6Count"
 					id="menu6Count" class='menuCount'>
@@ -141,7 +154,7 @@
 				</select></td>
 			</tr>
 			<tr class="menus">
-				<td id='menu7' class='menu'><img src="./images/자바칩 프라프치노.jpg" />
+				<td id='menu7' class='menu'><img src="./images/카페라떼.jpg" />
 					<br /> <span id="label7" value='자바칩 프라프치노'>자바칩 프라프치노</span> <span
 					id="price7" value='2000'>2000</span>원 <br /> <select
 					name="menu7Count" id="menu7Count" class='menuCount'>
@@ -152,7 +165,7 @@
 						<option value='4'>4</option>
 						<option value='5'>5</option>
 				</select></td>
-				<td id='menu8' class='menu'><img src="./images/차이 티.jpg" /> <br />
+				<td id='menu8' class='menu'><img src="./images/카페라떼.jpg" /> <br />
 					<span id="label8" value='차이 티'>차이 티</span> <span id="price8"
 					value='1000'>1000</span>원 <br /> <select name="menu8Count"
 					id="menu8Count" class='menuCount'>
@@ -163,7 +176,7 @@
 						<option value='4'>4</option>
 						<option value='5'>5</option>
 				</select></td>
-				<td id='menu9' class='menu'><img src="./images/그린 티.jpg" /> <br />
+				<td id='menu9' class='menu'><img src="./images/카페라떼.jpg" /> <br />
 					<span id="label9" value='그린 티'>그린 티 </span> <span id="price9"
 					value='1500'>1500</span>원 <br /> <select name="menu9Count"
 					id="menu9Count" class='menuCount'>

@@ -3,8 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <title>메인페이지</title>
+<script src="../../lib/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript"   src="js/jquery.cookie.js"></script>
 <script type="text/javascript">
-window.open("9_promotion.html","","width=400, height=360");
+//프로모션에서 지정된 쿠키 값을 얻어와서,  해당 값이 없을 대만 창 띄우기. 
+if($.cookie('check') != 'check'){
+	window.open("9_promotion.html","","width=400, height=360");
+	
+}
+
+
 </script>
 </head>
 <body>
