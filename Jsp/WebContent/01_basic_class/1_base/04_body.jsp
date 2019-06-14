@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<!-- 		페이지마다 헤더 추가 -->
+ 		<%@ include file = "04_header.jsp" %>
 		<hr><hr>
 		<!-- 메인 내용 시작  -->
 		
@@ -45,7 +47,8 @@
 		
 		<!-- 메인 내용 끝  -->
 		<hr><hr>
-		
+<!-- 		페이지마다 풋터 추가 -->
+		<%@ include file='04_footer.jsp' %>
 
 </body>
 </html>

@@ -31,7 +31,14 @@ public void DBLoading(){
 	//2. null 이라면 html파일 형식으로 기술
 	//3. excel이라면 excel파일 형식으로 기술
 	//4. word   라면 word파일 형식으로 기술
-	
+	String type = request.getParameter("type");
+	if(type != null){
+		if(type.equals("word")){
+			response.setContentType("application/msword"); //MTime type변경 // 브라우저가 인지하면 바로 열여주고, 인지 하지 못하면 다운로드하라고 나옴.
+		}else if(type.equals("excel")){
+			response.setContentType("application/vnd.ms-excel");
+		}
+	}
 %>
 
 <!DOCTYPE html>
