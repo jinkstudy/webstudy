@@ -40,7 +40,6 @@ int result = st.executeUpdate();
 %>
 
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,26 +47,6 @@ int result = st.executeUpdate();
 <title>Insert title here</title>
 </head>
 <body>
- <h2>정보 확인</h2>
-        <form action="updateMember.jsp" method="post">
-          <div>
-            <label for="name">이름:</label>
-            <input name="name" id="name" type="text" value="<%=name%>"/>
-          </div>
-          <div>
-            <label for="email">이메일:</label>
-            <input name="email" id="email" type="text" value="<%=email%>"/>
-          </div>
-          <div>
-            <label for="website">웹사이트 URL:</label>
-            <input name="website" id="website" type="text" value="<%=website%>" readonly/>
-          </div>
-          <div>
-            <label for="password">암호:</label>
-            <input name="password" id="password" type="text" value="<%=password%>"/>
-          </div>
-            <div>
-           <input type="submit" value="수정하기" />
-        </div>
+
 </body>
 </html>
