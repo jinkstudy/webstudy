@@ -25,7 +25,7 @@ Class.forName(driver);
 // 2. 연결객체 얻어오기
 con = DriverManager.getConnection(url, user ,pass);
 // 3. sql 문장 만들기
-String sql = "insert INTO memberjoin (member_name, member_mail, member_url, member_pw) values (?,?,?,?)";
+String sql = "update memberjoin set member_name =?, member_mail =?, member_url =?, member_pw =? where member_mail =? ";
 // 4. 전송 객체 얻어오기
 PreparedStatement st = con.prepareStatement(sql); // 완성되지않은 SQL문
 			
@@ -33,7 +33,7 @@ PreparedStatement st = con.prepareStatement(sql); // 완성되지않은 SQL문
 			st.setString(2,email);
 			st.setString(3,website);
 			st.setString(4, password);
-			
+			st.setString(5,email);
 // 5. 전송
 int result = st.executeUpdate(); 
 
@@ -47,6 +47,6 @@ int result = st.executeUpdate();
 <title>Insert title here</title>
 </head>
 <body>
-
+<%= "수정성공" %>
 </body>
 </html>
