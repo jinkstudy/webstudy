@@ -13,6 +13,11 @@
 // 2. 쿠키 이름 중에 "yourid"가 있는지 검색
 // 3. 해당하는 쿠키가 있다면 그 이름과 새 값으로 새 쿠키를 만들고 전송
 
+//그 이름과 새 값으로 새 쿠키를 만들고 전송
+	Cookie c = new Cookie("yourId","yyyy");
+	response.addCookie(c);
+	
+
 %>
 
 

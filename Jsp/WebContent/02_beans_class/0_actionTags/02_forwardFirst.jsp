@@ -44,12 +44,12 @@
 		
 		<!-- 메인 내용 끝  -->
 		<hr><hr>
-		<!-- 링크걸기 -->
-<!-- 		<a href ='04_responseSecond.jsp'>다음페이지</a> -->
 		
-		<!-- #######  리다이렉트 페이지 이동  -->
-		<!-- 		리다이렉트를 하면 바로 해당url 요청함.-->
-		<% response.sendRedirect("04_responseSecond.jsp"); %> 
+		<!-- 1.리다이렉트 -->
+<%-- <% response.sendRedirect("02_forwardSecond.jsp"); %> --%> <!-- 위에 주소도 바뀜(요청 두번) -->
+		<!-- ##################  -->
+		<!--  페이지 이동  -->
+		<jsp:forward page="02_forwardSecond.jsp"></jsp:forward> <!-- 주소변경없이 화면만 바뀜(요청 한번) -->
 
 		
 		

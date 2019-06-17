@@ -8,12 +8,14 @@
 </head>
 <body>
 
-요청정보 프로토콜 = <%= request.getProtocol() %> <br>
-요청정보 전송방식 = <%= request.getMethod() %> <br>
-요청 URI = <%= request.getRequestURI() %> <br>
-컨텍스트 경로 = <%= request.getContextPath() %> <br>
-서버이름 = <%= request.getServerName() %> <br>
-서버포트 = <%= request.getServerPort() %> <br>
+<%-- request 객체의 역할(1) 서버의 정보를 얻어오기 --%>
+
+요청정보 프로토콜 = <%= request.getProtocol() %> <br> <%-- 요청정보 프로토콜 = HTTP/1.1  --%>
+요청정보 전송방식 = <%= request.getMethod() %> <br> <%-- 요청정보 전송방식 = GET  --%>
+요청 URI = <%= request.getRequestURI() %> <br> <%-- 요청 URI = /Jsp/01_basic_class/3_objects/01_requestInfo.jsp   --%>
+컨텍스트 경로 = <%= request.getContextPath() %> <br> <%-- 컨텍스트 경로 = /Jsp   --%>
+서버이름 = <%= request.getServerName() %> <br> <%-- 서버이름 = 192.168.0.117   --%>
+서버포트 = <%= request.getServerPort() %> <br> <%-- 서버포트 = 8080   --%>
 
 </body>
 </html>

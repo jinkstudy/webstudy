@@ -4,9 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title> 첫번째 페이지 </title>
+<title> header와 footer 삽입하기</title>
 </head>
 <body>
+		<!-- ##################  -->
+		<!-- 페이지 삽입  -->
+<%-- 		<%@ include file = "01_header.jsp" %> --%>  <!--servlet으로 변경 시 코드를 그래도 붙여서 하나의 파일 처럼 보임. --> 
+		<jsp:include page="01_header.jsp"></jsp:include>  <!-- 해당 파일을 호출해서 사용함 -->
+
+		
+
 		<hr><hr>
 		<!-- 메인 내용 시작  -->
 		
@@ -44,14 +51,12 @@
 		
 		<!-- 메인 내용 끝  -->
 		<hr><hr>
-		<!-- 링크걸기 -->
-<!-- 		<a href ='04_responseSecond.jsp'>다음페이지</a> -->
 		
-		<!-- #######  리다이렉트 페이지 이동  -->
-		<!-- 		리다이렉트를 하면 바로 해당url 요청함.-->
-		<% response.sendRedirect("04_responseSecond.jsp"); %> 
+		<!-- ##################  -->
+		<!-- 페이지 삽입  -->
+		<jsp:include page="01_footer.jsp"></jsp:include>
+		
 
-		
-		
+
 </body>
 </html>
