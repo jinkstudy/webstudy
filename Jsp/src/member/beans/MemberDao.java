@@ -11,9 +11,9 @@ public class MemberDao {
 	// DB 연결시  관한 변수 
 
 	private static final String 	dbDriver	=	"oracle.jdbc.driver.OracleDriver";
-	private static final String		dbUrl		=	"jdbc:oracle:thin:@192.168.0.51:1521:orcl";
-	private static final String		dbUser		=	"mine";
-	private static final String		dbPass		=	"1234";
+	private static final String		dbUrl		=	"jdbc:oracle:thin:@192.168.0.117:1521:orcl";
+	private static final String		dbUser		=	"scott";
+	private static final String		dbPass		=	"tiger";
 	Connection con = null;
 		
 	private static MemberDao memberDao;
@@ -83,7 +83,26 @@ public class MemberDao {
 		boolean flag = false;
 		
 		try{
-
+			con = DriverManager.getConnection(dbUrl, dbUser ,dbPass);
+			 // 1. sql 문장 만들기 ( insert문 )
+			String sql = "select id from membertest where id = ?";
+			 // 2. sql 전송 객체 만들기
+			PreparedStatement st = con.prepareStatement(sql); // 완성되지않은 SQL문
+			st.setString(1, id);
+		
+			
+			 // 3. sql 전송
+			ResultSet rs = st.executeQuery(); 
+			if(rs.next()) {
+				//System.out.println(rs.getString("ID"));
+				flag = true;
+			}
+			 // 4. 객체 닫기
+			 st.close();
+			 con.close();
+			
+			
+			
 			
 		}catch( Exception ex ){
 			throw new MemberException("중복아이디 검사시 오류  : " + ex.toString() );			

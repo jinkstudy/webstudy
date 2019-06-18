@@ -12,6 +12,8 @@
 	if(obj == null){
 		response.sendRedirect("LoginForm.jsp");
 		return; // 밑에 코드 더이상 수행 안하도록.
+	}else{
+		response.sendRedirect("../02_cart/wshop.jsp");
 	}
 
 	String user = (String)obj;
