@@ -39,6 +39,7 @@ public class MemberDao {
 			*/
 		
 			Class.forName(dbDriver);
+			System.out.println("연결성공");
 		}catch( Exception ex ){
 			throw new MemberException("DB 연결시 오류  : " + ex.toString() );	
 		}

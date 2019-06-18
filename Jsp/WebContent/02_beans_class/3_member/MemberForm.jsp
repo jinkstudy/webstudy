@@ -7,6 +7,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title> 회원가입  </title>
+
+<style type = "text/css">
+table {
+border-collapse:collapse;
+	font-size:12px;
+	margin:0 20px 20px 20px;
+	border-top:2px solid #015287;
+	width:480px;
+}
+button {
+  margin-top: 10px;
+}
+
+
+</style>
 <script type="text/javascript">
 	function openWin(){
 		var id = document.frm.id.value;
