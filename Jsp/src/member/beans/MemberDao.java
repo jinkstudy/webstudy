@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class MemberDao {
 
@@ -109,5 +111,28 @@ public class MemberDao {
 		}
 			
 		return flag;
+	}
+	
+	public String getMember(String id) throws MemberException {
+		
+		String pass ="";
+		try {
+			con=DriverManager.getConnection(dbUrl, dbUser ,dbPass);
+			String sql = "select password from membertest where id = ?";
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, id);
+			ResultSet rs = st.executeQuery(); 
+			if(rs.next()) {
+				pass=rs.getString("password");
+			}
+			System.out.println(pass);
+			
+			
+		} catch (SQLException ex) {
+			// TODO Auto-generated catch block
+			throw new MemberException("비밀번호 가져오기 오류  : " + ex.toString() );	
+		}
+		
+		return pass;
 	}
 }
