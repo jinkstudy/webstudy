@@ -12,9 +12,12 @@
  
 <%
 	// 1. 부모게시물의 게시번호를 넘겨받기
-	
+	String pId=request.getParameter("parentId");
 	// 2. Service에 reply() 호출하여 답변글 등록하기
-	BoardRec reRec = null;
+	ReplyArticleService service = ReplyArticleService.getInstance();
+	BoardRec reRec= service.reply(pId,rec);
+	
+	
 
 %>
     

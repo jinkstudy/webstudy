@@ -41,10 +41,10 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			목록보기
-			답변하기
-			수정하기
-			삭제하기 	
+			<a href ="BoardList.jsp">목록보기</a>
+			<a href ="BoardReplyForm.jsp?parentId=<%=rec.getArticleId()%>">답변하기</a>
+			<a href ="BoardModifyForm.jsp?id=<%=rec.getArticleId()%>">수정하기</a>
+			<a href ="BoardDeleteForm.jsp?id=<%=rec.getArticleId()%>">삭제하기</a>
 		</td>
 	</tr>
 	</table>
