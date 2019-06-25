@@ -1,4 +1,4 @@
-package mvc.guest.control;
+package mvc.board.control;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -9,41 +9,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mvc.guest.command.Command;
-import mvc.guest.command.CommandDelete;
-import mvc.guest.command.CommandException;
-import mvc.guest.command.CommandInput;
-import mvc.guest.command.CommandList;
-import mvc.guest.command.CommandNull;
+import mvc.board.command.Command;
+import mvc.board.command.CommandException;
+import mvc.board.command.CommandList;
+import mvc.board.command.CommandNull;
+import mvc.board.command.CommandSave;
+import mvc.board.command.CommandView;
 
-public class GuestControl extends HttpServlet {
-	
+public class BoardControl extends HttpServlet{
 	private HashMap commandMap;
-	private String	jspDir = "/05_mvc_class/2_mvcGuest/";
+	private String	jspDir = "/05_mvc_class/3_mvcBoard/";
 	private String  error = "error.jsp";
 	
-
-    public GuestControl() {
-        super();       
+	public BoardControl() {
+		super();
 		initCommand();
 	}
 
-	private void initCommand(){
+
+	private void initCommand() {
 		commandMap = new HashMap();
-
-		commandMap.put("main-page",	new CommandNull("main.jsp") );
-		commandMap.put("list-page",	new CommandList("listMessage.jsp") );
-		commandMap.put("input-page",new CommandNull("insertMessage.jsp") ); // new 연결 객체("원하는 화면")
-		//commandMap.put("input-do",new CommandInput("saveMessage.jsp") );
-		commandMap.put("input-do",new CommandInput("listMessage.jsp") );
-		commandMap.put("delete-page",new CommandNull("deleteMessage.jsp") );
-		commandMap.put("delete-do",new CommandDelete("deleteConfirm.jsp") );
-		
-		// 입력 후 리스트 목록보기가 바로 나오도록.
-		// 나머지도 추가하기		
-		
+		commandMap.put("main-page", new CommandNull("main.jsp"));
+		commandMap.put("list-page", new CommandList("BoardList.jsp"));
+		commandMap.put("input-page", new CommandNull("BoardInputForm.jsp"));
+		commandMap.put("save-page", new CommandSave("BoardSave.jsp"));
+		commandMap.put("view-page", new CommandView("BoardView.jsp"));
 	}
-
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		processRequest(request, response);
 	}
@@ -58,6 +49,7 @@ public class GuestControl extends HttpServlet {
 
 		String nextPage = "";
 		String cmdKey	= request.getParameter("cmd");
+		System.out.println(cmdKey);
 		if( cmdKey == null ){
 			cmdKey = "main-page";
 		}
@@ -87,4 +79,6 @@ public class GuestControl extends HttpServlet {
 		
 	}
 
+	
+	
 }

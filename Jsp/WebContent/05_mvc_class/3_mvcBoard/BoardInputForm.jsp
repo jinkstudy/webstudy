@@ -18,7 +18,7 @@ $(function(){
         
         // form 태그의 action 속성을 'BoardSave.jsp'
         var frm = $("form[name='frm']");
-        frm.attr('action','BoardSave.jsp');
+        frm.attr('action','board?cmd=save-page');
         
         
         // form 태그의 submit() 호출

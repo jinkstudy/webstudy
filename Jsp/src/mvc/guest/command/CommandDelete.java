@@ -19,7 +19,7 @@ public class CommandDelete implements Command {
 				
 			int messageId = Integer.parseInt(request.getParameter("messageId"));
 			String password = request.getParameter("password");
-			
+			//System.out.println(messageId+"/"+password);
 			int resultCnt = MessageDao.getInstance().delete(messageId, password);
 			
 			request.setAttribute("result", resultCnt);

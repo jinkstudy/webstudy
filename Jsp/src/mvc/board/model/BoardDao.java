@@ -1,7 +1,7 @@
-package board.model;
+package mvc.board.model;
 
 
-import java.sql.*;
+import java.sql.*; 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,7 +16,7 @@ public class BoardDao
 	
 	// DB 연결시  관한 변수 
 	private static final String 	dbDriver	=	"oracle.jdbc.driver.OracleDriver";
-	private static final String		dbUrl		=	"jdbc:oracle:thin:@localhost:1521:orcl";
+	private static final String		dbUrl		=	"jdbc:oracle:thin:@192.168.0.117:1521:orcl";
 	private static final String		dbUser		=	"jink";
 	private static final String		dbPass		=	"1234";
 	

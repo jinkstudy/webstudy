@@ -10,8 +10,9 @@
 	{
 		var frmObj = document.frm;
 		
-		frmObj.action = "";
+		frmObj.action = "guest?cmd=input-do";
 		frmObj.submit();
+		
 	}
 </script>
 </head>

@@ -3,6 +3,7 @@
     
 <%
 	Object obj = request.getAttribute("param");
+	String reqData = request.getParameter("type"); //이전화면에 type이 있는 경우에만 reqData가 나옴.
 %>    
 <!DOCTYPE html>
 <html>
@@ -12,7 +13,7 @@
 </head>
 <body>
 	
-		<%= obj %> <br/>
+		<%= obj %> <br/><%=reqData %><br/>
 		복잡하다고 지나친 좌절과 놀람은 금물입니다. <br/><br/>
 		<img src="05_mvc_class/1_mvcSimple/imgs/sponge_1.JPG"/><br/><br/>
 

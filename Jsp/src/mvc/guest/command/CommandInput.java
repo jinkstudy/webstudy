@@ -25,7 +25,15 @@ public class CommandInput implements Command {
 			msg.setPassword(request.getParameter("password"));
 			msg.setMessage( request.getParameter("message"));
 			
-			MessageDao.getInstance().insert(msg);
+//			MessageDao.getInstance().insert(msg);
+//			
+//			// 입력 후 리스트 바로 나오게 하기 위해서 mList 저장해줘야한다.
+//			List <Message> mList = MessageDao.getInstance().selectList();	
+//			request.setAttribute("param", mList );
+			
+			MessageDao dao = MessageDao.getInstance();
+			List <Message> mList = dao.selectList();
+			request.setAttribute("param", mList );
 			
 		}catch( MessageException ex ){
 			throw new CommandException("CommandInput.java < 입력시 > " + ex.toString() ); 
