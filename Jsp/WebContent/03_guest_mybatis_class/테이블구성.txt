@@ -1,0 +1,8 @@
+테이블명 : comment_tab
+
+comment_no		number(10) PK
+user_id			varchar2(20)
+comment_content varchar2(500)
+reg_date		date
+
+시퀀스명 : seq_comment_no

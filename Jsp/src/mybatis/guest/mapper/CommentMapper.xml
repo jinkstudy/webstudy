@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="mapper.CommentMapper">
+
+<!-- 	<select id="selectComment" resultType="mybatis.guest.model.Comment">  -->
+<select id="selectComment" resultType="comment"><!-- mybatis-config파일에서 alias 별칭 부여 후 별칭으로 접근가능  -->
+
+<!-- 		select comment_no as commentNo -->
+<!-- 		       ,user_id as userId -->
+<!-- 		       ,comment_content as commentContent -->
+<!-- 		       ,reg_date as regDate  -->
+<!-- 		       from comment_tab -->
+
+		select * from comment_tab
+<!-- 	</select> -->
+<!-- 	<select id="selectCommentByPK" parameterType="long" resultType="comment"> parameterType=입력 값 자료형 resultType=반환값자료형  -->
+<!-- 	select *  -->
+<!-- 	From comment_tab  -->
+<!-- 	where comment_no = #{commentNo} -->
+<!-- 	</select> -->
+	
+	<insert id="insertComment" parameterType="comment" > <!-- parameterType=입력 값 자료형  -->
+	insert into comment_tab (comment_no,user_id,comment_content,reg_date) 
+	values (seq_comment_no.nextval,#{userId},#{commentContent},sysdate)
+	</insert>
+	
+<!-- 	#{} : PreparedStatement를 이용 -->
+<!-- 	${} : Statement를 이용 -->
+	
+	<delete id="deleteComment" parameterType="long" > <!-- parameterType=입력 값 자료형  -->
+	delete from comment_tab where comment_no=#{commentNo}
+	</delete>
+	
+</mapper> 
+
+
+ 
