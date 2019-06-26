@@ -1,9 +1,10 @@
 package mybatis.guest.session;
 
 
-import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -44,12 +45,26 @@ public class CommentRepository {
 			sess.close(); //Connection 마이바티즈에게 반환, 끝내는 것은 아님.
 		}
 	}
-	//pk로 불러오기
+	//조건 검색1
+//	public Comment selectCommentByPK(long commentNo) {
+//		// 마이바티즈가 관리하는 Connection 하나를 얻어오기
+//		SqlSession sess = getSqlSessionFactory().openSession();
+//		try {
+//			Comment c = sess.selectOne(namespace+".selectCommentByPK",commentNo); // 하나의 결과를 얻어올떄(seletOne("select문주소.ID),where절)
+//			return c;
+//		}finally {
+//			sess.close(); //Connection 마이바티즈에게 반환, 끝내는 것은 아님.
+//		}
+//	
+//	}
+	//조건 검색2 //여러개 검색할때 
 	public Comment selectCommentByPK(long commentNo) {
 		// 마이바티즈가 관리하는 Connection 하나를 얻어오기
 		SqlSession sess = getSqlSessionFactory().openSession();
 		try {
-			Comment c = sess.selectOne(namespace+".selectCommentByPK",commentNo); // 하나의 결과를 얻어올떄(seletOne("select문주소.ID),where절)
+			Map map = new HashMap();
+			map.put("commentNo", commentNo);
+			Comment c = sess.selectOne(namespace+".selectComment",map ); // 하나의 결과를 얻어올떄(seletOne("select문주소.ID),where절)
 			return c;
 		}finally {
 			sess.close(); //Connection 마이바티즈에게 반환, 끝내는 것은 아님.
@@ -88,6 +103,25 @@ public class CommentRepository {
 			}finally {
 				sess.close(); //Connection 마이바티즈에게 반환, 끝내는 것은 아님.
 			}
+	}
+	
+	public int modifyComment(Comment c) {
+		SqlSession sess = getSqlSessionFactory().openSession();
+		try {
+			 int result = sess.update(namespace+".modifyComment", c);
+			 System.out.println(result);
+			// 결과는 몇개의 행을 입력했는지 확인하는 것.
+			 if(result > 0) {
+				 
+				 sess.commit();
+			 }else {
+				 sess.rollback();
+			 }
+			 return result;
+			}finally {
+				sess.close(); //Connection 마이바티즈에게 반환, 끝내는 것은 아님.
+			}
+		
 	}
 	
 	

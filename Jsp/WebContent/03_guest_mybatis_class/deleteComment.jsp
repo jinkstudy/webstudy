@@ -11,7 +11,7 @@
 <%
 	long cId = Long.parseLong(request.getParameter("cId"));
 
-	System.out.println(cId);
+	//System.out.println(cId);
   CommentService.getInstance().deleteComment(cId); 
      
 %>

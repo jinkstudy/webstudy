@@ -5,8 +5,8 @@
 <%
 	// 1. 해당 게시물의 게시글번호값을 얻어온다
 	String id = request.getParameter("article_id");
-	// 2. Service에 getArticleById() 호출하여 그 게시글번호를 갖는 레코드를 검색한다.
-	
+
+	//2.Commandview에 set된 Attribute를 get해온다.	
 	BoardRec rec = (BoardRec)request.getAttribute("param");
 	
 %>     
@@ -43,9 +43,9 @@
 	<tr>
 		<td colspan="2">
 			<a href ="board?cmd=list-page">목록보기</a>
-			<a href ="BoardReplyForm.jsp?parentId=<%=rec.getArticleId()%>">답변하기</a>
-			<a href ="BoardModifyForm.jsp?id=<%=rec.getArticleId()%>">수정하기</a>
-			<a href ="BoardDeleteForm.jsp?id=<%=rec.getArticleId()%>">삭제하기</a>
+			<a href ="board?cmd=reply-page">답변하기</a>
+			<a href ="board?cmd=modify-page&article_id=<%=rec.getArticleId()%>">수정하기</a>
+			<a href ="board?cmd=delete-page&id=<%=rec.getArticleId()%>">삭제하기</a>
 		</td>
 	</tr>
 	</table>

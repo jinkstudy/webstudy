@@ -10,9 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import mvc.board.command.Command;
+import mvc.board.command.CommandDelete;
 import mvc.board.command.CommandException;
 import mvc.board.command.CommandList;
+import mvc.board.command.CommandModify;
 import mvc.board.command.CommandNull;
+import mvc.board.command.CommandReply;
 import mvc.board.command.CommandSave;
 import mvc.board.command.CommandView;
 
@@ -34,7 +37,13 @@ public class BoardControl extends HttpServlet{
 		commandMap.put("input-page", new CommandNull("BoardInputForm.jsp"));
 		commandMap.put("save-page", new CommandSave("BoardSave.jsp"));
 		commandMap.put("view-page", new CommandView("BoardView.jsp"));
-	}
+		commandMap.put("delete-page",new CommandNull("BoardDeleteForm.jsp"));
+		commandMap.put("delete-do",new CommandDelete("BoardDelete.jsp"));
+		commandMap.put("reply-page",new CommandNull("BoardReplyForm.jsp"));
+		commandMap.put("reply-do",new CommandReply("BoardReply.jsp"));
+		commandMap.put("modify-page",new CommandView("BoardModifyForm.jsp"));
+		commandMap.put("modify-do",new CommandModify("BoardModify.jsp"));
+	} 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		processRequest(request, response);
 	}

@@ -36,6 +36,9 @@ public class CommentService {
 		repo.deleteComment(cId);
 	
 	}
+	public int modifyComment(Comment c){
+	 return	repo.modifyComment(c);
 	
+	}
 	
 }

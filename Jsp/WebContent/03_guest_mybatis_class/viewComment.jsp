@@ -19,20 +19,32 @@ window.onload = function(){
 	document.getElementById("btnDelete").onclick=function(){
 		window.location.href="deleteComment.jsp?cId=<%=comment.getCommentNo()%>";
 	}
+	
+// 	document.getElementById("btnModify").onsubmit=function(){
+		
+<%-- 		window.location.href="modifyComment.jsp?cId=<%=comment.getCommentNo()%>"; --%>
+
+// 	}
+
 }
 
 
 </script>
 </head>
 <body>
+<form name="frm" method="post" action = "modifyComment.jsp">
+<input type = "hidden" name = "commentNo" value="<%=comment.getCommentNo()%>"/>
 <table border="1">
-		<tr><td>작성자</td><td><%=  comment.getCommentNo()%></td></tr>
-		<tr><td>메세지</td><td><%=  comment.getCommentContent()%></td></tr>
+
+		<tr><td>작성자</td><td><input type = "text" name = "userId" value="<%=  comment.getUserId()%>"/></td></tr>
+		<tr><td>메세지</td><td><input type = "text" name = "commentContent" value="<%=  comment.getCommentContent()%>"/></td></tr>
 		<tr><td>등록일</td><td><%=  comment.getRegDate()%></td></tr>
 		<tr><td colspan="2">
-				<input type="button" id="btnModify" value="수정" />
+				<input type="submit" id="btnModify" value="수정" />
 				<input type="button" id="btnDelete" value="삭제" />
 				</td></tr>
+				
 </table>
+</form>
 </body>
 </html>

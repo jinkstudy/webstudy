@@ -6,16 +6,24 @@
 <mapper namespace="mapper.CommentMapper">
 
 <!-- 	<select id="selectComment" resultType="mybatis.guest.model.Comment">  -->
-<select id="selectComment" resultType="comment"><!-- mybatis-config파일에서 alias 별칭 부여 후 별칭으로 접근가능  -->
+<select id="selectComment" parameterType="hashmap" resultType="comment"><!-- mybatis-config파일에서 alias 별칭 부여 후 별칭으로 접근가능  -->
 
 <!-- 		select comment_no as commentNo -->
 <!-- 		       ,user_id as userId -->
 <!-- 		       ,comment_content as commentContent -->
 <!-- 		       ,reg_date as regDate  -->
 <!-- 		       from comment_tab -->
-
-		select * from comment_tab
-<!-- 	</select> -->
+<!-- 비교연산자 <등을 넣고 싶을 때, 문자로 인식하라는 표시로 <![cdata[]]>안에 쿼리를 넣어줘야한다  -->
+		
+		 select * from comment_tab 
+	
+		<where>
+<!-- 		<![CDATA[comment_no < 4 ]]> -->
+			<if test="commentNo != null">
+				comment_no = #{commentNo} 
+			</if>
+		</where>
+	</select>
 <!-- 	<select id="selectCommentByPK" parameterType="long" resultType="comment"> parameterType=입력 값 자료형 resultType=반환값자료형  -->
 <!-- 	select *  -->
 <!-- 	From comment_tab  -->
@@ -33,6 +41,11 @@
 	<delete id="deleteComment" parameterType="long" > <!-- parameterType=입력 값 자료형  -->
 	delete from comment_tab where comment_no=#{commentNo}
 	</delete>
+	
+	<update id="modifyComment" parameterType="comment" > <!-- parameterType=입력 값 자료형  -->
+	update comment_tab set user_id=#{userId},comment_content=#{commentContent},reg_date=sysdate
+	where comment_no=#{commentNo}
+	</update>
 	
 </mapper> 
 

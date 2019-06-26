@@ -302,12 +302,12 @@ public class BoardDao
 			
 			ps.setString(2,rec.getContent());
 			ps.setInt(3,rec.getArticleId());
-			System.out.println(rec.getArticleId());
+			//System.out.println(rec.getArticleId());
 			ps.setString(4,rec.getPassword());
-			System.out.println(rec.getPassword());
+			//System.out.println(rec.getPassword());
 			int result = ps.executeUpdate();
-			System.out.println("수정dao성공");
-			System.out.println(result);
+			//System.out.println("수정dao성공");
+			//System.out.println(result);
 			return result; // 나중에 수정된 수를 리턴하시오.
 		
 		}catch( Exception ex ){
