@@ -3,15 +3,17 @@ package info.beans;
 public class InfoBean {
 	private String id;
 	private String name;
+
 	
 	public InfoBean(){
 		
 	}
 	
-	public InfoBean(String id, String name) {
+	public InfoBean(String id, String name,String gender) {
 		super();
 		this.id =id;
 		this.name = name;
+		
 	}
 
 	public String getId() {
