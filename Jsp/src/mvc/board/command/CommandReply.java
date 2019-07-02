@@ -22,54 +22,48 @@ private String next;
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws CommandException {
 		try{
-			int article_id  = Integer.parseInt(request.getParameter("article_id"));
-			String password = request.getParameter("password");
+			int parentId  = Integer.parseInt(request.getParameter("parentId"));
+			BoardRec rec = new BoardRec();
 			
-			int result = BoardDao.getInstance().delete(article_id, password);
-		
+			rec.setWriterName(request.getParameter("writerName"));
+			rec.setPassword(request.getParameter("password"));
+			rec.setTitle(request.getParameter("title"));
+			rec.setContent(request.getParameter("content"));
 			
-			request.setAttribute("result", result);
+			
+			BoardDao dao = BoardDao.getInstance();
+			// 부모게시글의 레코드를 얻어옴
+			BoardRec parent = dao.selectById(parentId);
+			
+			// 부모게시글을 체크
+			checkParent(parent, parentId);
+			
+			// 답변글에 순서번호 구하기
+			String maxSeqNum = parent.getSequenceNo();
+			String minSeqNum = getSearchMinSeqNum( parent );
+			
+			String lastChildSeq = dao.selectLastSequenceNumber( maxSeqNum, minSeqNum );
+			
+			String sequenceNumber = getSequenceNumber( parent,lastChildSeq);
+			
+			
+			
+			
+			rec.setGroupId(parent.getGroupId()); // 부모의 그룹번호와 동일하게 지정
+			rec.setSequenceNo(sequenceNumber);	 // 위에서 구한 답변글의 순서번호 지정
+			rec.setPostingDate( (new Date()).toString());	 // 등록일
+			
+			int articleId = dao.insert(rec);
+			rec.setArticleId(articleId);
+			request.setAttribute("param", rec);
+			
 		}catch( BoardException ex ){
-			throw new CommandException("CommandDelete.java < 삭제시 > " + ex.toString() ); 
+			throw new CommandException("CommandReply.java < 삭제시 > " + ex.toString() ); 
 		}
 		
 		return next;	
 		
 	}
-	
-	public BoardRec reply( String pId,  BoardRec rec ) throws BoardException{
-		
-		int parentId = 0;
-		if( pId != null ) parentId = Integer.parseInt(pId);
-
-
-		BoardDao dao = BoardDao.getInstance();
-		// 부모게시글의 레코드를 얻어옴
-		BoardRec parent = dao.selectById(parentId);
-		
-		// 부모게시글을 체크
-		checkParent(parent, parentId);
-		
-		// 답변글에 순서번호 구하기
-		String maxSeqNum = parent.getSequenceNo();
-		String minSeqNum = getSearchMinSeqNum( parent );
-		
-		String lastChildSeq = dao.selectLastSequenceNumber( maxSeqNum, minSeqNum );
-		
-		String sequenceNumber = getSequenceNumber( parent,lastChildSeq);
-		
-		
-		rec.setGroupId(parent.getGroupId()); // 부모의 그룹번호와 동일하게 지정
-		rec.setSequenceNo(sequenceNumber);	 // 위에서 구한 답변글의 순서번호 지정
-		rec.setPostingDate( (new Date()).toString());	 // 등록일
-		
-		int articleId = dao.insert(rec);
-		rec.setArticleId(articleId);
-		
-		return rec;
-		
-	}
-	
 	
 	/*
 	 * 부모글이 존재하는지 부모글이 마지막 3단계인지 확인하는 함수

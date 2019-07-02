@@ -24,6 +24,8 @@ if(session.getAttribute("answer")== null){
 	session.setAttribute("answer",ansno);
 	System.out.println(ansno);
 }
+
+
 	
 %>
 
